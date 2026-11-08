@@ -1,3 +1,9 @@
+import Layout from "../components/layout/Layout";
 export default function Wishlist() {
-  return null;
+  return (
+    <>
+      <Layout />
+      <p>WishList</p>
+    </>
+  );
 }

@@ -1,3 +1,7 @@
+import Layout from "../components/layout/Layout";
 export default function Cart() {
-  return null;
+  return <>
+  <Layout />
+  <p>Cart</p>
+  </>;
 }

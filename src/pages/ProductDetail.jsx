@@ -1,3 +1,9 @@
+import Layout from "../components/layout/Layout";
 export default function ProductDetail() {
-  return null;
+  return (
+    <>
+    <Layout />
+      <p>Not Found</p>{" "}
+    </>
+  );
 }

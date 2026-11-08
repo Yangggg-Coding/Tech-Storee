@@ -1,1 +1,142 @@
-[]
+[
+  {
+    "id": 1,
+    "name": "iPhone 18 Pro",
+    "brand": "Apple",
+    "category": "phones",
+    "description": "A20 Pro chip with a variable aperture camera.",
+    "price": 1199,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["256GB", "512GB", "1TB", "2TB"],
+    "optionPrices": { "256GB": 1199, "512GB": 1399, "1TB": 1799, "2TB": 2399 },
+    "finishes": ["#1c1c1e", "#a9c4e0", "#dfe7ee", "#6b1f2e"],
+    "specs": {
+      "screen": "6.3 inch OLED",
+      "chip": "A20 Pro",
+      "ram": "12 GB",
+      "battery": "Up to 36 hours video playback",
+      "rearCamera": "48 MP x3 (main, ultrawide, 4x telephoto)",
+      "frontCamera": "18 MP"
+    },
+    "image": "/images/iphone-18-pro.jpg",
+    "rating": 4.8,
+    "reviewCount": 1240
+  },
+  {
+    "id": 2,
+    "name": "iPhone 18 Pro Max",
+    "brand": "Apple",
+    "category": "phones",
+    "description": "The biggest screen and the longest battery life yet.",
+    "price": 1299,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["256GB", "512GB", "1TB", "2TB"],
+    "optionPrices": { "256GB": 1299, "512GB": 1499, "1TB": 1899, "2TB": 2499 },
+    "finishes": ["#1c1c1e", "#a9c4e0", "#dfe7ee", "#6b1f2e"],
+    "specs": {
+      "screen": "6.9 inch OLED",
+      "chip": "A20 Pro",
+      "ram": "12 GB",
+      "battery": "Up to 45 hours video playback",
+      "rearCamera": "48 MP x3 (main, ultrawide, 4x telephoto)",
+      "frontCamera": "18 MP"
+    },
+    "image": "/images/iphone-18-pro-max.jpg",
+    "rating": 4.9,
+    "reviewCount": 980
+  },
+  {
+    "id": 3,
+    "name": "Galaxy S26 Ultra",
+    "brand": "Samsung",
+    "category": "phones",
+    "description": "6.9 inch display, 200 MP camera, and a built-in S Pen.",
+    "price": 1199,
+    "originalPrice": 1299,
+    "badge": "Sale",
+    "options": ["256GB", "512GB", "1TB"],
+    "optionPrices": { "256GB": 1199, "512GB": 1319, "1TB": 1559 },
+    "finishes": ["#f2f2f0", "#3b6ea8", "#1a1a1a", "#7b5ea7"],
+    "specs": {
+      "screen": "6.9 inch QHD+ Dynamic AMOLED 2X",
+      "chip": "Snapdragon 8 Elite Gen 5 for Galaxy",
+      "ram": "12 GB (16 GB on 1TB)",
+      "battery": "5000 mAh",
+      "rearCamera": "200 MP main, 50 MP ultrawide, 10 MP telephoto x2",
+      "frontCamera": "12 MP"
+    },
+    "image": "/images/galaxy-s26-ultra.jpg",
+    "rating": 4.7,
+    "reviewCount": 860
+  },
+  {
+    "id": 4,
+    "name": "iPhone 17",
+    "brand": "Apple",
+    "category": "phones",
+    "description": "The best value in the iPhone range right now.",
+    "price": 899,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["256GB", "512GB"],
+    "optionPrices": { "256GB": 899, "512GB": 1099 },
+    "finishes": ["#1c1c1e", "#f5f5f0", "#9fb7cc", "#a8b5a0"],
+    "specs": {
+      "screen": "6.3 inch OLED",
+      "chip": "A19",
+      "ram": "8 GB",
+      "rearCamera": "48 MP dual Fusion",
+      "frontCamera": "18 MP"
+    },
+    "image": "/images/iphone-17.jpg",
+    "rating": 4.6,
+    "reviewCount": 2100
+  },
+  {
+    "id": 5,
+    "name": "Pixel 11 Pro",
+    "brand": "Google",
+    "category": "phones",
+    "description": "Tensor G6, 5x telephoto, and seven years of updates.",
+    "price": 1099,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["256GB", "512GB", "1TB"],
+    "optionPrices": { "256GB": 1099, "512GB": 1219, "1TB": 1449 },
+    "finishes": ["#b5654a", "#7a8266", "#c9ced2", "#1f2124"],
+    "specs": {
+      "screen": "6.3 inch LTPO OLED",
+      "chip": "Google Tensor G6",
+      "ram": "12 GB (16 GB on 512GB and 1TB)",
+      "battery": "About 4,850 mAh",
+      "rearCamera": "50 MP main, 48 MP ultrawide, 48 MP 5x telephoto",
+      "frontCamera": "42 MP"
+    },
+    "image": "/images/pixel-11-pro.jpg",
+    "rating": 4.5,
+    "reviewCount": 540
+  },
+  {
+    "id": 6,
+    "name": "Pixel 11",
+    "brand": "Google",
+    "category": "phones",
+    "description": "Google AI and a clean Android experience.",
+    "price": 899,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["256GB", "512GB"],
+    "optionPrices": { "256GB": 899, "512GB": 1019 },
+    "finishes": ["#c2185b", "#d9dce0", "#6b7a4f", "#2a3140"],
+    "specs": {
+      "chip": "Google Tensor G6",
+      "ram": "12 GB",
+      "rearCamera": "48 MP main, 13 MP ultrawide, 10.8 MP telephoto"
+    },
+    "image": "/images/pixel-11.jpg",
+    "rating": 4.4,
+    "reviewCount": 410
+  }
+]
