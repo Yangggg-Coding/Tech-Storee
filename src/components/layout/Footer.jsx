@@ -1,3 +1,108 @@
+/* import { Github, Instagram, MessageCircle, Youtube, Zap } from "lucide-react"; */
+import { Link } from "react-router-dom";
+import "../../styles/footer.css";
+
+const categories = [
+  "Computers & Rigs",
+  "Phones & Tablets",
+  "Neural Audio Gear",
+  "Gaming & VR Systems",
+  "Smart Home Automation",
+  "High-Speed Accessories",
+];
+
+const supportLinks = [
+  "Order Tracking Portal",
+  "Warranty & Registration",
+  "Returns & Global Refunds",
+  "Trade-In & Recycling",
+  "Live Tech Specialist",
+];
+
 export default function Footer() {
-  return null;
+  return (
+    <footer className="site-footer">
+      <div className="site-footer__main">
+        <section className="site-footer__brand">
+          <Link className="site-footer__logo" to="/" aria-label="Volit home">
+            <span className="site-footer__logo-mark">
+              {/*               <Zap size={19} fill="currentColor" /> */}
+            </span>
+            <span>volt</span>
+          </Link>
+          <p>
+            Pioneering high-performance computing, mobile devices, smart
+            automation, and spatial audio systems.
+          </p>
+          <div className="site-footer__socials" aria-label="Social media">
+            <a href="https://instagram.com" aria-label="Instagram">
+              {/*            <Instagram size={18} /> */}
+            </a>
+            <a href="https://github.com" aria-label="GitHub">
+              {/*           <Github size={18} /> */}
+            </a>
+            <a href="https://discord.com" aria-label="Discord">
+              {/*               <MessageCircle size={18} /> */}
+            </a>
+            <a href="https://youtube.com" aria-label="YouTube">
+              {/*    <Youtube size={18} /> */}
+            </a>
+          </div>
+        </section>
+
+        <section className="site-footer__column">
+          <h2>Shop Categories</h2>
+          <ul>
+            {categories.map((category) => (
+              <li key={category}>
+                <Link to="/shop">{category}</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="site-footer__column">
+          <h2>Customer Support</h2>
+          <ul>
+            {supportLinks.map((item) => (
+              <li key={item}>
+                <Link to="/shop">{item}</Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section className="site-footer__newsletter">
+          <h2>Volit Insider Newsletter</h2>
+          <p>
+            Subscribe for hardware releases, benchmarks, and 10% discount
+            vouchers.
+          </p>
+          <form onSubmit={(event) => event.preventDefault()}>
+            <label className="visually-hidden" htmlFor="footer-email">
+              Email address
+            </label>
+            <input
+              id="footer-email"
+              type="email"
+              placeholder="Enter your email"
+            />
+            <button type="submit">Subscribe Now</button>
+          </form>
+        </section>
+      </div>
+
+      <div className="site-footer__bottom">
+        <p>
+          © 2026 Volit Inc. All rights reserved. High-Performance Hardware
+          Solutions.
+        </p>
+        <nav aria-label="Legal">
+          <a href="#privacy">Privacy Policy</a>
+          <a href="#terms">Terms of Service</a>
+          <a href="#security">Security Specs</a>
+        </nav>
+      </div>
+    </footer>
+  );
 }
