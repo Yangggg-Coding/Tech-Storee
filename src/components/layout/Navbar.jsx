@@ -66,11 +66,9 @@ export default function Navbar() {
         </ul>
         <ul className="navbar__featured">
           <li>
-            <NavLink to="/shop">New arrivals</NavLink>
-          </li>
-          <li>
             <NavLink to="/shop" className="navbar__drop">
-              The weekly drop <ArrowUpRight size={14} />
+              New arrivals
+              <ArrowUpRight size={14} />
             </NavLink>
           </li>
         </ul>

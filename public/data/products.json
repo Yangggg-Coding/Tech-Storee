@@ -19,7 +19,7 @@
       "rearCamera": "48 MP x3 (main, ultrawide, 4x telephoto)",
       "frontCamera": "18 MP"
     },
-    "image": "/images/iphone-18-pro.jpg",
+    "image": "/images/hero/18pro.jpg",
     "rating": 4.8,
     "reviewCount": 1240
   },
@@ -43,7 +43,7 @@
       "rearCamera": "48 MP x3 (main, ultrawide, 4x telephoto)",
       "frontCamera": "18 MP"
     },
-    "image": "/images/iphone-18-pro-max.jpg",
+    "image": "/images/hero/18promax.jpg",
     "rating": 4.9,
     "reviewCount": 980
   },
@@ -67,7 +67,7 @@
       "rearCamera": "200 MP main, 50 MP ultrawide, 10 MP telephoto x2",
       "frontCamera": "12 MP"
     },
-    "image": "/images/galaxy-s26-ultra.jpg",
+    "image": "/images/hero/galaxy-s26-ultra.jpg",
     "rating": 4.7,
     "reviewCount": 860
   },
@@ -90,7 +90,7 @@
       "rearCamera": "48 MP dual Fusion",
       "frontCamera": "18 MP"
     },
-    "image": "/images/iphone-17.jpg",
+    "image": "/images/hero/iPhone17.jpg",
     "rating": 4.6,
     "reviewCount": 2100
   },
@@ -114,7 +114,7 @@
       "rearCamera": "50 MP main, 48 MP ultrawide, 48 MP 5x telephoto",
       "frontCamera": "42 MP"
     },
-    "image": "/images/pixel-11-pro.jpg",
+    "image": "/images/hero/pixel-11-pro.jpg",
     "rating": 4.5,
     "reviewCount": 540
   },
@@ -135,7 +135,7 @@
       "ram": "12 GB",
       "rearCamera": "48 MP main, 13 MP ultrawide, 10.8 MP telephoto"
     },
-    "image": "/images/pixel-11.jpg",
+    "image": "/images/hero/pixel-11.jpg",
     "rating": 4.4,
     "reviewCount": 410
   }
