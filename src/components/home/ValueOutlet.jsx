@@ -1,87 +1,61 @@
-
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const products = [
   {
     id: 1,
     badge: "GRADE A CERTIFIED",
-    name: 'Refurbished NexusBook Ultra 14"',
-    description:
-      "Thoroughly inspected, factory re-certified with 1-Year warranty included.",
+    name: 'Refurbished VoltBook Pro 14"',
+    description: "Thoroughly inspected and recertified, with a one-year warranty.",
     oldPrice: "$1,899.00",
     price: "$1,349.00",
   },
   {
     id: 2,
     badge: "OPEN-BOX LIKE NEW",
-    name: "Open-Box Matrix VR Headset",
-    description:
-      "Customer return item in original box with full factory accessories attached.",
+    name: "Open-box Matrix VR Headset",
+    description: "A customer return in its original box with all included accessories.",
     oldPrice: "$899.00",
     price: "$699.00",
   },
   {
     id: 3,
-    badge: "FACTORY RE-SEALED",
+    badge: "FACTORY RESEALED",
     name: "Refurbished Aether Pro ANC Headphones",
-    description:
-      "Acoustically tested and disinfected with brand new ear cushions installed.",
+    description: "Acoustically tested, cleaned, and fitted with new ear cushions.",
     oldPrice: "$349.00",
     price: "$239.00",
   },
 ];
 
-function ValueOutlet() {
+export default function ValueOutlet() {
   return (
     <section className="value-outlet" id="open-box">
-
-      <div className="outlet-header">
+      <div className="value-outlet__header">
         <div>
-          <span className="outlet-label">VALUE OUTLET</span>
-          <h2>Certified Refurbished &amp; Open-Box</h2>
+          <p className="value-outlet__eyebrow">Good tech, better value</p>
+          <h2 className="value-outlet__title">Certified refurbished &amp; open-box</h2>
         </div>
-
-        <a href="#open-box" className="explore-link">
-          Explore All Open-Box →
-        </a>
+        <Link to="/shop" className="value-outlet__link">Explore the collection <ArrowRight size={17} /></Link>
       </div>
-
-
-      <div className="outlet-grid">
+      <div className="value-outlet__grid">
         {products.map((product) => (
-          <div className="outlet-card" key={product.id}>
-
-            <div className="product-info">
-              <span className="product-badge">
-                {product.badge}
-              </span>
-
+          <article className="value-outlet__card" key={product.id}>
+            <div className="value-outlet__body">
+              <span className="value-outlet__badge">{product.badge}</span>
               <h3>{product.name}</h3>
-
               <p>{product.description}</p>
             </div>
-
-            <div className="product-footer">
-              <div className="product-pricing">
-                <span className="old-price">
-                  {product.oldPrice}
-                </span>
-
-                <strong className="new-price">
-                  {product.price}
-                </strong>
+            <div className="value-outlet__footer">
+              <div className="value-outlet__prices">
+                <del>{product.oldPrice}</del>
+                <strong>{product.price}</strong>
               </div>
-
-              <button className="claim-button" type="button">
-                Claim Deal
-              </button>
+              <Link className="value-outlet__action" to="/shop">Explore</Link>
             </div>
-
-          </div>
+          </article>
         ))}
       </div>
-
     </section>
   );
 }
-
-export default ValueOutlet;

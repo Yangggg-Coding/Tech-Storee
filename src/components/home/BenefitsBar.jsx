@@ -1,44 +1,22 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faTruckFast,
-  faShieldHalved,
-  faRotateLeft,
-  faHeadset,
-} from "@fortawesome/free-solid-svg-icons";
+import { Truck, ShieldCheck, RotateCcw, Headset } from "lucide-react";
 
 const benefits = [
-  {
-    icon: faTruckFast,
-    title: "Free Global Shipping",
-    text: "On orders over $50",
-  },
-  {
-    icon: faShieldHalved,
-    title: "2-Year Warranty",
-    text: "Full hardware protection",
-  },
-  {
-    icon: faRotateLeft,
-    title: "30-Day Money Back",
-    text: "Hassle-free return policy",
-  },
-  {
-    icon: faHeadset,
-    title: "24/7 Tech Support",
-    text: "Live specialist assistance",
-  },
+  { icon: Truck, title: "Free global shipping", text: "On orders over $50" },
+  { icon: ShieldCheck, title: "2-year warranty", text: "Full hardware protection" },
+  { icon: RotateCcw, title: "30-day money back", text: "Hassle-free returns" },
+  { icon: Headset, title: "Expert support", text: "Here whenever you need us" },
 ];
 
 export default function BenefitsBar() {
   return (
-    <section className="benefits">
+    <section className="benefits" aria-label="Shopping benefits">
       <div className="benefits__inner">
-        {benefits.map((b) => (
-          <div key={b.title} className="benefit">
-            <FontAwesomeIcon icon={b.icon} className="benefit__icon" />
+        {benefits.map(({ icon: Icon, title, text }) => (
+          <div className="benefit" key={title}>
+            <Icon className="benefit__icon" aria-hidden="true" />
             <div>
-              <h3 className="benefit__title">{b.title}</h3>
-              <p className="benefit__text">{b.text}</p>
+              <h2 className="benefit__title">{title}</h2>
+              <p className="benefit__text">{text}</p>
             </div>
           </div>
         ))}

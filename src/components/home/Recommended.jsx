@@ -30,8 +30,8 @@ export default function Recommended() {
     <section className="reco">
       <div className="reco__head">
         <div>
-          <p className="reco__eyebrow">Personalized engine</p>
-          <h2 className="reco__title">Recommended For You</h2>
+          <p className="reco__eyebrow">Chosen with care</p>
+          <h2 className="reco__title">Recommended for you</h2>
         </div>
         <Link to="/shop" className="reco__link">
           View Full Catalog <ArrowRight size={16} />
@@ -40,23 +40,24 @@ export default function Recommended() {
 
       <div className="reco__grid">
         {picks.map((p) => (
-          <article key={p.id} className="reco-card">
-            <div className="reco-card__media">
+          <article key={p.id} className="reco__card">
+            <div className="reco__media">
               <Link to={`/product/${p.id}`}>
                 <img src={p.image} alt={p.name} />
               </Link>
 
-              {p.badge && <span className="reco-card__badge">{p.badge}</span>}
+              {p.badge && <span className="reco__badge">{p.badge}</span>}
 
-              <div className="reco-card__actions">
+              <div className="reco__actions">
                 <button
                   className={
                     wishlist.includes(p.id)
-                      ? "reco-card__icon reco-card__icon--active"
-                      : "reco-card__icon"
+                      ? "reco__icon reco__icon--active"
+                      : "reco__icon"
                   }
                   onClick={() => toggleWishlist(p.id)}
-                  aria-label="Add to wishlist"
+                  aria-label={wishlist.includes(p.id) ? "Remove from wishlist" : "Add to wishlist"}
+                  aria-pressed={wishlist.includes(p.id)}
                 >
                   <Heart
                     size={16}
@@ -65,7 +66,7 @@ export default function Recommended() {
                 </button>
                 <Link
                   to={`/product/${p.id}`}
-                  className="reco-card__icon"
+                  className="reco__icon"
                   aria-label="Quick view"
                 >
                   <Eye size={16} />
@@ -73,33 +74,33 @@ export default function Recommended() {
               </div>
             </div>
 
-            <div className="reco-card__body">
-              <div className="reco-card__meta">
-                <span className="reco-card__category">
+            <div className="reco__body">
+              <div className="reco__meta">
+                <span className="reco__category">
                   {categoryLabels[p.category] || p.category}
                 </span>
-                <span className="reco-card__rating">
+                <span className="reco__rating">
                   <Star size={13} fill="currentColor" />
                   {p.rating}
                 </span>
               </div>
 
-              <h3 className="reco-card__name">
+              <h3 className="reco__name">
                 <Link to={`/product/${p.id}`}>{p.name}</Link>
               </h3>
 
-              <div className="reco-card__foot">
-                <div className="reco-card__prices">
-                  <span className="reco-card__price">${p.price.toFixed(2)}</span>
+              <div className="reco__foot">
+                <div className="reco__prices">
+                  <span className="reco__price">${p.price.toFixed(2)}</span>
                   {p.originalPrice && (
-                    <span className="reco-card__old">
+                    <span className="reco__old">
                       ${p.originalPrice.toFixed(2)}
                     </span>
                   )}
                 </div>
-                <button className="reco-card__cart" aria-label="Add to cart">
+                <Link className="reco__cart" to={`/product/${p.id}`} aria-label={`View ${p.name}`}>
                   <ShoppingCart size={18} />
-                </button>
+                </Link>
               </div>
             </div>
           </article>
