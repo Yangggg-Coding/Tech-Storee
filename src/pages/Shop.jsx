@@ -22,7 +22,7 @@ export default function Shop() {
   }
 
   const sortedProducts = sortProducts(products, sort);
-
+  
   return (
     <>
       <Layout />

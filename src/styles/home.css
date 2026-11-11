@@ -367,8 +367,7 @@ img {
   transition: transform 200ms ease;
 }
 
-.navbar_categories a:hover::after,
-.navbar_categories a.active::after {
+.navbar_categories a:hover::after {
   transform: scaleX(1);
 }
 
