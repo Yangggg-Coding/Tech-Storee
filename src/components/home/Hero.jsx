@@ -40,13 +40,13 @@ export default function Hero() {
   return (
     <div className="home-hero">
       <section className="hero">
-        <div className="hero__content">
-          <p className="hero__eyebrow">The latest, picked for you</p>
-          <h1 className="hero__title">
+        <div className="hero_content">
+          <p className="hero_eyebrow">The latest, picked for you</p>
+          <h1 className="hero_title">
             Meet your next <span>favorite phone.</span>
           </h1>
-          <p className="hero__description">{featuredProduct.description}</p>
-          <div className="hero__actions">
+          <p className="hero_description">{featuredProduct.description}</p>
+          <div className="hero_actions">
             <Link
               className="button button--primary"
               to={`/productdetail/${featuredProduct.id}`}
@@ -59,16 +59,16 @@ export default function Hero() {
           </div>
         </div>
         <Link
-          className="hero__image-wrap"
+          className="hero_image-wrap"
           to={`/productdetail/${featuredProduct.id}`}
           aria-label={`View ${featuredProduct.name}`}
         >
           <img
-            className="hero__image"
+            className="hero_image"
             src={featuredProduct.image}
             alt={featuredProduct.name}
           />
-          <span className="hero__image-badge">
+          <span className="hero_image-badge">
             {featuredProduct.badge || "Volt pick"}
           </span>
         </Link>

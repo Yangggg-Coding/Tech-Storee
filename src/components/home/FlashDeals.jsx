@@ -26,36 +26,39 @@ export default function FlashDeal() {
 
   return (
     <section className="deal">
-      <div className="deal__content">
-        <div className="deal__copy">
-          <p className="deal__eyebrow">Deal of the week</p>
-          <h2 className="deal__title">
+      <div className="deal_content">
+        <div className="deal_copy">
+          <p className="deal_eyebrow">Deal of the week</p>
+          <h2 className="deal_title">
             A little more phone
             <br />A lot less price.
           </h2>
-          <p className="deal__description">
+          <p className="deal_description">
             Thoughtful tech, special pricing, and the same Volt support you can
             count on.
           </p>
-          <div className="deal__timer">
+          <div className="deal_timer">
             <Clock3 size={17} aria-hidden="true" /> Limited-time offer
           </div>
-          <Link className="button button--primary" to={`/productdetail/${deal.id}`}>
+          <Link
+            className="button button--primary"
+            to={`/productdetail/${deal.id}`}
+          >
             Shop the deal
           </Link>
         </div>
         <Link
-          className="deal__product"
+          className="deal_product"
           to={`/productdetail/${deal.id}`}
           aria-label={`Shop ${deal.name}`}
         >
-          <span className="deal__badge">Special price</span>
+          <span className="deal_badge">Special price</span>
           <img src={deal.image} alt={deal.name} />
-          <span className="deal__product-name">{deal.name}</span>
-          <span className="deal__price">
+          <span className="deal_product-name">{deal.name}</span>
+          <span className="deal_price">
             ${deal.price.toFixed(2)}{" "}
             {deal.originalPrice && (
-              <del className="deal__old-price">
+              <del className="deal_old-price">
                 ${deal.originalPrice.toFixed(2)}
               </del>
             )}

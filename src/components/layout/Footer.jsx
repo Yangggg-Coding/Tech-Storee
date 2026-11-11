@@ -22,10 +22,10 @@ const supportLinks = [
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="site-footer__main">
-        <section className="site-footer__brand">
-          <Link className="site-footer__logo" to="/" aria-label="Volit home">
-            <span className="site-footer__logo-mark">
+      <div className="site-footer_main">
+        <section className="site-footer_brand">
+          <Link className="site-footer_logo" to="/" aria-label="Volit home">
+            <span className="site-footer_logo-mark">
               {/*               <Zap size={19} fill="currentColor" /> */}
             </span>
             <span>volt</span>
@@ -34,7 +34,7 @@ export default function Footer() {
             Pioneering high-performance computing, mobile devices, smart
             automation, and spatial audio systems.
           </p>
-          <div className="site-footer__socials" aria-label="Social media">
+          <div className="site-footer_socials" aria-label="Social media">
             <a href="https://instagram.com" aria-label="Instagram">
               {/*            <Instagram size={18} /> */}
             </a>
@@ -50,7 +50,7 @@ export default function Footer() {
           </div>
         </section>
 
-        <section className="site-footer__column">
+        <section className="site-footer_column">
           <h2>Shop Categories</h2>
           <ul>
             {categories.map((category) => (
@@ -61,7 +61,7 @@ export default function Footer() {
           </ul>
         </section>
 
-        <section className="site-footer__column">
+        <section className="site-footer_column">
           <h2>Customer Support</h2>
           <ul>
             {supportLinks.map((item) => (
@@ -72,7 +72,7 @@ export default function Footer() {
           </ul>
         </section>
 
-        <section className="site-footer__newsletter">
+        <section className="site-footer_newsletter">
           <h2>Volit Insider Newsletter</h2>
           <p>
             Subscribe for hardware releases, benchmarks, and 10% discount
@@ -92,7 +92,7 @@ export default function Footer() {
         </section>
       </div>
 
-      <div className="site-footer__bottom">
+      <div className="site-footer_bottom">
         <p>
           © 2026 Volit Inc. All rights reserved. High-Performance Hardware
           Solutions.

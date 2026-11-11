@@ -21,52 +21,52 @@ const departments = [
 export default function Navbar() {
   return (
     <header className="navbar">
-      <div className="navbar__main">
-        <Link to="/" className="navbar__brand">
+      <div className="navbar_main">
+        <Link to="/" className="navbar_brand">
           volt<span>.</span>
         </Link>
 
-        <div className="navbar__search-wrap">
-          <Search className="navbar__search-icon" size={20} />
+        <div className="navbar_search-wrap">
+          <Search className="navbar_search-icon" size={20} />
           <input
-            className="navbar__search"
+            className="navbar_search"
             type="search"
             placeholder="Find your next upgrade"
           />
-          <kbd className="navbar__kbd">⌘ K</kbd>
+          <kbd className="navbar_kbd">⌘ K</kbd>
         </div>
 
-        <div className="navbar__tools">
-          <button className="navbar__tool">
+        <div className="navbar_tools">
+          <button className="navbar_tool">
             <Headset size={20} />
             <span>Ask an expert</span>
           </button>
-          <button className="navbar__tool" aria-label="Account">
+          <button className="navbar_tool" aria-label="Account">
             <UserRound size={20} />
           </button>
-          <button className="navbar__tool" aria-label="Wishlist">
+          <button className="navbar_tool" aria-label="Wishlist">
             <Link to="/wishlist">
               <Heart size={20} />
             </Link>
           </button>
-          <Link to="/cart" className="navbar__tool" aria-label="Cart">
+          <Link to="/cart" className="navbar_tool" aria-label="Cart">
             <ShoppingBag size={20} />
-            <span className="navbar__count">0</span>
+            <span className="navbar_count">0</span>
           </Link>
         </div>
       </div>
 
-      <nav className="navbar__categories">
-        <ul className="navbar__departments">
+      <nav className="navbar_categories">
+        <ul className="navbar_departments">
           {departments.map((d) => (
             <li key={d.name}>
               <NavLink to={d.to}>{d.name}</NavLink>
             </li>
           ))}
         </ul>
-        <ul className="navbar__featured">
+        <ul className="navbar_featured">
           <li>
-            <NavLink to="/shop" className="navbar__drop">
+            <NavLink to="/shop" className="navbar_drop">
               New arrivals
               <ArrowUpRight size={14} />
             </NavLink>

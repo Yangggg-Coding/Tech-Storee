@@ -21,7 +21,8 @@
     },
     "image": "/images/hero/18pro.jpg",
     "rating": 4.8,
-    "reviewCount": 1240
+    "reviewCount": 1240,
+    "releaseDate": "2026-09-18"
   },
   {
     "id": 2,
@@ -45,7 +46,8 @@
     },
     "image": "/images/hero/18promax.jpg",
     "rating": 4.9,
-    "reviewCount": 980
+    "reviewCount": 980,
+    "releaseDate": "2026-09-18"
   },
   {
     "id": 3,
@@ -69,7 +71,8 @@
     },
     "image": "/images/hero/galaxy-s26-ultra.jpg",
     "rating": 4.7,
-    "reviewCount": 860
+    "reviewCount": 860,
+    "releaseDate": "2026-02-25"
   },
   {
     "id": 4,
@@ -92,7 +95,8 @@
     },
     "image": "/images/hero/iPhone17.jpg",
     "rating": 4.6,
-    "reviewCount": 2100
+    "reviewCount": 2100,
+    "releaseDate": "2025-09-19"
   },
   {
     "id": 5,
@@ -116,7 +120,8 @@
     },
     "image": "/images/hero/pixel-11-pro.jpg",
     "rating": 4.5,
-    "reviewCount": 540
+    "reviewCount": 540,
+    "releaseDate": "2026-08-20"
   },
   {
     "id": 6,
@@ -137,6 +142,557 @@
     },
     "image": "/images/hero/pixel-11.jpg",
     "rating": 4.4,
-    "reviewCount": 410
+    "reviewCount": 410,
+    "releaseDate": "2026-08-20"
+  },
+  {
+    "id": 7,
+    "name": "MacBook Air 13-inch (M5)",
+    "brand": "Apple",
+    "category": "computers",
+    "description": "Silent, light, and fast, with 512GB of storage as standard.",
+    "price": 1299,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["512GB"],
+    "optionPrices": { "512GB": 1299 },
+    "finishes": ["#2e3642", "#f0e6d2", "#b8d4e8", "#e3e4e5"],
+    "specs": {
+      "screen": "13.6 inch Liquid Retina",
+      "chip": "Apple M5",
+      "ram": "16 GB",
+      "storage": "512 GB",
+      "battery": "About 15 hours (tested)"
+    },
+    "image": "/images/products/macbook-air-13-m5.jpg",
+    "rating": 4.8,
+    "reviewCount": 760,
+    "releaseDate": "2026-03-11"
+  },
+  {
+    "id": 8,
+    "name": "MacBook Air 15-inch (M5)",
+    "brand": "Apple",
+    "category": "computers",
+    "description": "A bigger screen with the same silent M5 performance.",
+    "price": 1499,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["512GB"],
+    "optionPrices": { "512GB": 1499 },
+    "finishes": ["#2e3642", "#f0e6d2", "#b8d4e8", "#e3e4e5"],
+    "specs": {
+      "screen": "15.3 inch Liquid Retina",
+      "chip": "Apple M5",
+      "ram": "16 GB",
+      "storage": "512 GB",
+      "battery": "About 15 hours (tested)"
+    },
+    "image": "/images/products/macbook-air-15-m5.jpg",
+    "rating": 4.7,
+    "reviewCount": 520,
+    "releaseDate": "2026-03-11"
+  },
+  {
+    "id": 9,
+    "name": "Dell XPS 14 (2026)",
+    "brand": "Dell",
+    "category": "computers",
+    "description": "The XPS returns with a unibody build and a 120Hz display.",
+    "price": 1600,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["512GB"],
+    "optionPrices": { "512GB": 1600 },
+    "finishes": ["#c9ced2", "#2a2d33"],
+    "specs": {
+      "screen": "14 inch 120Hz (OLED option)",
+      "chip": "Intel Core Ultra 7 355",
+      "battery": "20+ hours on the base display (tested)"
+    },
+    "image": "/images/products/dell-xps-14-2026.jpg",
+    "rating": 4.6,
+    "reviewCount": 310,
+    "releaseDate": "2026-03-01"
+  },
+  {
+    "id": 10,
+    "name": "MacBook Pro 14-inch (M5)",
+    "brand": "Apple",
+    "category": "computers",
+    "description": "Pro performance and a Liquid Retina XDR display.",
+    "price": 1599,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["512GB"],
+    "optionPrices": { "512GB": 1599 },
+    "finishes": ["#2e2e30", "#e3e4e5"],
+    "specs": {
+      "screen": "14.2 inch Liquid Retina XDR",
+      "chip": "Apple M5",
+      "ram": "16 GB",
+      "storage": "512 GB"
+    },
+    "image": "/images/products/macbook-pro-14-m5.jpg",
+    "rating": 4.8,
+    "reviewCount": 640,
+    "releaseDate": "2025-10-22"
+  },
+  {
+    "id": 11,
+    "name": "MacBook Neo",
+    "brand": "Apple",
+    "category": "computers",
+    "description": "The lowest priced Mac, built for school and everyday work.",
+    "price": 599,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["256GB"],
+    "optionPrices": { "256GB": 599 },
+    "finishes": ["#e3e4e5", "#f0e6d2"],
+    "specs": {
+      "screen": "13 inch Liquid Retina",
+      "chip": "Apple A18 Pro",
+      "storage": "256 GB"
+    },
+    "image": "/images/products/macbook-neo.jpg",
+    "rating": 4.5,
+    "reviewCount": 430,
+    "releaseDate": "2026-03-11"
+  },
+  {
+    "id": 12,
+    "name": "AirPods Pro 3",
+    "brand": "Apple",
+    "category": "audio",
+    "description": "Active noise cancellation with heart rate sensing.",
+    "price": 249,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 249 },
+    "finishes": ["#f5f5f7"],
+    "specs": {
+      "type": "In-ear true wireless",
+      "noiseCancelling": "Active (ANC)",
+      "rating": "IP57 dust and water resistant",
+      "extras": "Heart rate sensing"
+    },
+    "image": "/images/products/airpods-pro-3.jpg",
+    "rating": 4.7,
+    "reviewCount": 3200,
+    "releaseDate": "2025-09-19"
+  },
+  {
+    "id": 13,
+    "name": "Sony WH-1000XM6",
+    "brand": "Sony",
+    "category": "audio",
+    "description": "Flagship noise cancelling headphones that fold flat.",
+    "price": 459.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 459.99 },
+    "finishes": ["#1a1a1a", "#d8d3c8", "#2f3d57"],
+    "specs": {
+      "type": "Over-ear wireless",
+      "noiseCancelling": "Active (QN3 processor)",
+      "battery": "Up to 30 hours",
+      "connectivity": "Bluetooth with multipoint"
+    },
+    "image": "/images/products/sony-wh-1000xm6.jpg",
+    "rating": 4.8,
+    "reviewCount": 1850,
+    "releaseDate": "2025-05-15"
+  },
+  {
+    "id": 14,
+    "name": "Sony WF-1000XM6",
+    "brand": "Sony",
+    "category": "audio",
+    "description": "Top rated noise cancelling earbuds with LDAC support.",
+    "price": 329.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 329.99 },
+    "finishes": ["#1a1a1a", "#d8d3c8"],
+    "specs": {
+      "type": "In-ear true wireless",
+      "noiseCancelling": "Active (ANC)",
+      "battery": "About 9 hours with ANC on (tested)",
+      "codecs": "LDAC, LC3"
+    },
+    "image": "/images/products/sony-wf-1000xm6.jpg",
+    "rating": 4.7,
+    "reviewCount": 920,
+    "releaseDate": "2026-02-10"
+  },
+  {
+    "id": 15,
+    "name": "Bose QuietComfort Ultra Headphones (2nd Gen)",
+    "brand": "Bose",
+    "category": "audio",
+    "description": "All day comfort with immersive audio and strong ANC.",
+    "price": 449,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 449 },
+    "finishes": ["#1a1a1a", "#e8e4dc", "#2f3d57"],
+    "specs": {
+      "type": "Over-ear wireless",
+      "noiseCancelling": "Active (ANC)",
+      "extras": "Immersive Audio"
+    },
+    "image": "/images/products/bose-qc-ultra-headphones-2.jpg",
+    "rating": 4.7,
+    "reviewCount": 1100,
+    "releaseDate": "2025-10-01"
+  },
+  {
+    "id": 16,
+    "name": "Galaxy Buds4 Pro",
+    "brand": "Samsung",
+    "category": "audio",
+    "description": "Samsung's best earbuds, tuned for Galaxy phones.",
+    "price": 249.99,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 249.99 },
+    "finishes": ["#1a1a1a", "#e8e8ea"],
+    "specs": {
+      "type": "In-ear true wireless",
+      "noiseCancelling": "Active (ANC)",
+      "battery": "About 6 hours (tested)"
+    },
+    "image": "/images/products/galaxy-buds4-pro.jpg",
+    "rating": 4.5,
+    "reviewCount": 380,
+    "releaseDate": "2026-02-25"
+  },
+  {
+    "id": 17,
+    "name": "Nintendo Switch 2",
+    "brand": "Nintendo",
+    "category": "gaming",
+    "description": "The hybrid console that works at home and on the go.",
+    "price": 499.99,
+    "originalPrice": null,
+    "badge": "Hot",
+    "options": ["256GB"],
+    "optionPrices": { "256GB": 499.99 },
+    "finishes": ["#2a2d33"],
+    "specs": {
+      "type": "Hybrid console",
+      "storage": "256 GB"
+    },
+    "image": "/images/products/nintendo-switch-2.jpg",
+    "rating": 4.8,
+    "reviewCount": 4100,
+    "releaseDate": "2025-06-05"
+  },
+  {
+    "id": 18,
+    "name": "PlayStation 5 Pro",
+    "brand": "Sony",
+    "category": "gaming",
+    "description": "The most powerful PlayStation, built for 4K gaming.",
+    "price": 899.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["2TB"],
+    "optionPrices": { "2TB": 899.99 },
+    "finishes": ["#f5f5f7", "#1a1a1a"],
+    "specs": {
+      "type": "Home console",
+      "storage": "2 TB"
+    },
+    "image": "/images/products/ps5-pro.jpg",
+    "rating": 4.7,
+    "reviewCount": 2300,
+    "releaseDate": "2024-11-07"
+  },
+  {
+    "id": 19,
+    "name": "Xbox Series X (1TB Digital)",
+    "brand": "Microsoft",
+    "category": "gaming",
+    "description": "All digital Xbox with 1TB of storage and Game Pass support.",
+    "price": 749.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["1TB"],
+    "optionPrices": { "1TB": 749.99 },
+    "finishes": ["#f5f5f7", "#1a1a1a"],
+    "specs": {
+      "type": "Home console",
+      "storage": "1 TB"
+    },
+    "image": "/images/products/xbox-series-x-digital.jpg",
+    "rating": 4.6,
+    "reviewCount": 1700,
+    "releaseDate": "2024-10-15"
+  },
+  {
+    "id": 20,
+    "name": "Steam Deck OLED",
+    "brand": "Valve",
+    "category": "gaming",
+    "description": "Your Steam library on a handheld with an HDR OLED screen.",
+    "price": 789,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["512GB", "1TB"],
+    "optionPrices": { "512GB": 789, "1TB": 949 },
+    "finishes": ["#2a2d33"],
+    "specs": {
+      "screen": "7.4 inch HDR OLED, up to 90Hz",
+      "ram": "16 GB",
+      "battery": "3 to 12 hours of play"
+    },
+    "image": "/images/products/steam-deck-oled.jpg",
+    "rating": 4.8,
+    "reviewCount": 2600,
+    "releaseDate": "2023-11-16"
+  },
+  {
+    "id": 21,
+    "name": "ROG Xbox Ally",
+    "brand": "Asus",
+    "category": "gaming",
+    "description": "A Windows handheld that boots straight into the Xbox app.",
+    "price": 599.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["512GB"],
+    "optionPrices": { "512GB": 599.99 },
+    "finishes": ["#f5f5f7", "#1a1a1a"],
+    "specs": {
+      "screen": "7 inch 1080p 120Hz touchscreen",
+      "chip": "AMD Ryzen Z2 A",
+      "ram": "16 GB",
+      "storage": "512 GB"
+    },
+    "image": "/images/products/rog-xbox-ally.jpg",
+    "rating": 4.3,
+    "reviewCount": 640,
+    "releaseDate": "2025-10-16"
+  },
+  {
+    "id": 22,
+    "name": "Echo Dot (5th Gen)",
+    "brand": "Amazon",
+    "category": "smart-home",
+    "description": "A small smart speaker with Alexa and better sound.",
+    "price": 49.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 49.99 },
+    "finishes": ["#2a2d33", "#f5f5f7", "#3b6ea8"],
+    "specs": {
+      "type": "Smart speaker",
+      "assistant": "Alexa",
+      "sensors": "Temperature and motion"
+    },
+    "image": "/images/products/echo-dot-5.jpg",
+    "rating": 4.7,
+    "reviewCount": 5200,
+    "releaseDate": "2022-10-20"
+  },
+  {
+    "id": 23,
+    "name": "Echo Show 8 (3rd Gen)",
+    "brand": "Amazon",
+    "category": "smart-home",
+    "description": "An 8 inch smart display for video calls and home control.",
+    "price": 149.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 149.99 },
+    "finishes": ["#2a2d33", "#f5f5f7"],
+    "specs": {
+      "type": "Smart display",
+      "screen": "8 inch touchscreen",
+      "assistant": "Alexa"
+    },
+    "image": "/images/products/echo-show-8.jpg",
+    "rating": 4.6,
+    "reviewCount": 2900,
+    "releaseDate": "2023-10-25"
+  },
+  {
+    "id": 24,
+    "name": "Google Home Speaker",
+    "brand": "Google",
+    "category": "smart-home",
+    "description": "Google's new smart speaker that replaces the Nest Audio.",
+    "price": 99.99,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 99.99 },
+    "finishes": ["#2a2d33", "#f5f5f7"],
+    "specs": {
+      "type": "Smart speaker",
+      "assistant": "Google Gemini"
+    },
+    "image": "/images/products/google-home-speaker.jpg",
+    "rating": 4.4,
+    "reviewCount": 260,
+    "releaseDate": "2026-03-01"
+  },
+  {
+    "id": 25,
+    "name": "Nest Learning Thermostat (4th Gen)",
+    "brand": "Google",
+    "category": "smart-home",
+    "description": "A thermostat that learns your schedule and saves energy.",
+    "price": 249.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 249.99 },
+    "finishes": ["#c9ced2", "#2a2d33", "#b5a58a"],
+    "specs": {
+      "type": "Smart thermostat",
+      "control": "App and voice"
+    },
+    "image": "/images/products/nest-thermostat-4.jpg",
+    "rating": 4.5,
+    "reviewCount": 1400,
+    "releaseDate": "2024-10-01"
+  },
+  {
+    "id": 26,
+    "name": "Philips Hue White and Color Starter Kit",
+    "brand": "Philips Hue",
+    "category": "smart-home",
+    "description": "Smart bulbs with 16 million colors and a Hue Bridge.",
+    "price": 199,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["3 bulbs + Bridge"],
+    "optionPrices": { "3 bulbs + Bridge": 199 },
+    "finishes": ["#f5f5f7"],
+    "specs": {
+      "type": "Smart lighting",
+      "colors": "16 million",
+      "includes": "3 bulbs and Hue Bridge"
+    },
+    "image": "/images/products/philips-hue-starter-kit.jpg",
+    "rating": 4.7,
+    "reviewCount": 3800,
+    "releaseDate": "2023-09-01"
+  },
+  {
+    "id": 27,
+    "name": "Logitech MX Master 4",
+    "brand": "Logitech",
+    "category": "accessories",
+    "description": "A productivity mouse with haptic feedback and Action Ring.",
+    "price": 119.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Graphite", "Pale Grey", "Black"],
+    "optionPrices": { "Graphite": 119.99, "Pale Grey": 119.99, "Black": 119.99 },
+    "finishes": ["#3a3d42", "#d4d6d9", "#1a1a1a"],
+    "specs": {
+      "type": "Wireless mouse",
+      "extras": "Haptic thumb rest, USB-C Bolt receiver"
+    },
+    "image": "/images/products/logitech-mx-master-4.jpg",
+    "rating": 4.8,
+    "reviewCount": 1300,
+    "releaseDate": "2025-09-24"
+  },
+  {
+    "id": 28,
+    "name": "Anker Prime Power Bank (26K, 300W)",
+    "brand": "Anker",
+    "category": "accessories",
+    "description": "A high capacity power bank that can charge a laptop.",
+    "price": 229.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["26,000 mAh"],
+    "optionPrices": { "26,000 mAh": 229.99 },
+    "finishes": ["#2a2d33"],
+    "specs": {
+      "capacity": "26,000 mAh",
+      "output": "300 W"
+    },
+    "image": "/images/products/anker-prime-power-bank.jpg",
+    "rating": 4.6,
+    "reviewCount": 410,
+    "releaseDate": "2025-10-01"
+  },
+  {
+    "id": 29,
+    "name": "Anker 140W 4-Port GaN Charger",
+    "brand": "Anker",
+    "category": "accessories",
+    "description": "One compact charger for your laptop, phone, and tablet.",
+    "price": 89.99,
+    "originalPrice": null,
+    "badge": null,
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 89.99 },
+    "finishes": ["#2a2d33", "#f5f5f7"],
+    "specs": {
+      "output": "140 W total",
+      "ports": "4 USB-C"
+    },
+    "image": "/images/products/anker-140w-charger.jpg",
+    "rating": 4.6,
+    "reviewCount": 890,
+    "releaseDate": "2025-01-15"
+  },
+  {
+    "id": 30,
+    "name": "Anker Prime Foldable MagSafe Charger",
+    "brand": "Anker",
+    "category": "accessories",
+    "description": "A foldable Qi2 charger with AirCool temperature control.",
+    "price": 149.99,
+    "originalPrice": null,
+    "badge": "New",
+    "options": ["Standard"],
+    "optionPrices": { "Standard": 149.99 },
+    "finishes": ["#2a2d33"],
+    "specs": {
+      "charging": "MagSafe compatible, Qi2",
+      "extras": "AirCool temperature control"
+    },
+    "image": "/images/products/anker-prime-foldable-magsafe.jpg",
+    "rating": 4.5,
+    "reviewCount": 150,
+    "releaseDate": "2026-07-01"
+  },
+  {
+    "id": 31,
+    "name": "Samsung T9 Portable SSD (1TB)",
+    "brand": "Samsung",
+    "category": "accessories",
+    "description": "A rugged SSD with fast USB 3.2 Gen 2x2 speeds.",
+    "price": 179.99,
+    "originalPrice": 287.99,
+    "badge": "Sale",
+    "options": ["1TB"],
+    "optionPrices": { "1TB": 179.99 },
+    "finishes": ["#2a2d33"],
+    "specs": {
+      "storage": "1 TB",
+      "speed": "Up to 2,000 MB/s",
+      "interface": "USB 3.2 Gen 2x2, USB-C"
+    },
+    "image": "/images/products/samsung-t9-ssd.jpg",
+    "rating": 4.8,
+    "reviewCount": 2100,
+    "releaseDate": "2023-08-01"
   }
 ]

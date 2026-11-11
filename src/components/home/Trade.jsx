@@ -26,29 +26,39 @@ export default function Trade() {
 
   return (
     <section className="trade">
-      <section className="trade__intro">
-        <RefreshCw className="trade__icon" size={24} aria-hidden="true" />
-        <p className="trade__eyebrow">Trade in with Volt</p>
-        <h2 className="trade__title">Your old phone could be someone else’s new one.</h2>
+      <section className="trade_intro">
+        <RefreshCw className="trade_icon" size={24} aria-hidden="true" />
+        <p className="trade_eyebrow">Trade in with Volt</p>
+        <h2 className="trade_title">
+          Your old phone could be someone else’s new one.
+        </h2>
         <p>
           Get an estimate for your old tech and put its value toward your next
           upgrade. It’s a simple way to make a little room for something new.
         </p>
-        <div className="trade__perk">
+        <div className="trade_perk">
           <Check size={16} />
           <p>Free Return Label</p>
         </div>
-        <div className="trade__perk">
+        <div className="trade_perk">
           <Check size={16} />
           <p>Data Wipe Guarantee</p>
         </div>
       </section>
 
-      <div className="trade__panel">
-        <section className="trade__form">
-          <h3 className="trade__form-title">Estimate your trade-in</h3>
-          {loading && <p className="trade__message" aria-live="polite">Loading eligible devices…</p>}
-          {error && <p className="trade__message trade__message--error" role="alert">We couldn’t load devices: {error}</p>}
+      <div className="trade_panel">
+        <section className="trade_form">
+          <h3 className="trade_form-title">Estimate your trade-in</h3>
+          {loading && (
+            <p className="trade_message" aria-live="polite">
+              Loading eligible devices…
+            </p>
+          )}
+          {error && (
+            <p className="trade_message trade_message--error" role="alert">
+              We couldn’t load devices: {error}
+            </p>
+          )}
 
           <label htmlFor="trade-brand">Brand</label>
           <select
@@ -97,12 +107,16 @@ export default function Trade() {
           </select>
         </section>
 
-        <div className="trade__result" aria-live="polite">
-          <div> 
-            <p className="trade__result-label">Estimated trade-in credit</p>
-            <p className="trade__result-amount">${credit.toFixed(2)}</p>
+        <div className="trade_result" aria-live="polite">
+          <div>
+            <p className="trade_result-label">Estimated trade-in credit</p>
+            <p className="trade_result-amount">${credit.toFixed(2)}</p>
           </div>
-          <button className="button button--primary trade__apply" type="button" disabled={credit === 0}>
+          <button
+            className="button button--primary trade_apply"
+            type="button"
+            disabled={credit === 0}
+          >
             Apply credit
           </button>
         </div>
