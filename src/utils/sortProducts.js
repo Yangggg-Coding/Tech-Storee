@@ -26,3 +26,4 @@ export function sortProducts(products, sortKey) {
       return list;
   }
 }
+

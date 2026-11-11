@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+
 export default function ProductDetail() {
   const { products, loading, error } = useProducts();
   const { id } = useParams();

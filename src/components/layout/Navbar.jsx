@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useSearchParams } from "react-router-dom";
 import {
   Search,
   Headset,
@@ -8,17 +8,18 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import "../../styles/navbar.css";
-const departments = [
-  { name: "Shop all", to: "/shop" },
-  { name: "Computers", to: "/shop" },
-  { name: "Phones & tablets", to: "/shop" },
-  { name: "Audio", to: "/shop" },
-  { name: "Gaming", to: "/shop" },
-  { name: "Smart home", to: "/shop" },
-  { name: "Accessories", to: "/shop" },
-];
 
 export default function Navbar() {
+  const departments = [
+    { name: "Shop all", to: "/shop" },
+    { name: "Computers", to: "/shop?category=computers" },
+    { name: "Phones & tablets", to: "/shop?category=phones" },
+    { name: "Audio", to: "/shop?category=audio" },
+    { name: "Gaming", to: "/shop?category=gaming" },
+    { name: "Smart home", to: "/shop?category=smart-home" },
+    { name: "Accessories", to: "/shop?category=accessories" },
+  ];
+
   return (
     <header className="navbar">
       <div className="navbar_main">
@@ -66,7 +67,7 @@ export default function Navbar() {
         </ul>
         <ul className="navbar_featured">
           <li>
-            <NavLink to="/shop" className="navbar_drop">
+            <NavLink to="/shop?sort=newest" className="navbar_drop">
               New arrivals
               <ArrowUpRight size={14} />
             </NavLink>
