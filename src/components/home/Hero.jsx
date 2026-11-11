@@ -49,7 +49,7 @@ export default function Hero() {
           <div className="hero__actions">
             <Link
               className="button button--primary"
-              to={`/product/${featuredProduct.id}`}
+              to={`/productdetail/${featuredProduct.id}`}
             >
               Shop {featuredProduct.name}
             </Link>
@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
         <Link
           className="hero__image-wrap"
-          to={`/product/${featuredProduct.id}`}
+          to={`/productdetail/${featuredProduct.id}`}
           aria-label={`View ${featuredProduct.name}`}
         >
           <img

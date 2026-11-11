@@ -42,7 +42,7 @@ export default function Recommended() {
         {picks.map((p) => (
           <article key={p.id} className="reco__card">
             <div className="reco__media">
-              <Link to={`/product/${p.id}`}>
+              <Link to={`/productdetail/${p.id}`}>
                 <img src={p.image} alt={p.name} />
               </Link>
 
@@ -65,7 +65,7 @@ export default function Recommended() {
                   />
                 </button>
                 <Link
-                  to={`/product/${p.id}`}
+                  to={`/productdetail/${p.id}`}
                   className="reco__icon"
                   aria-label="Quick view"
                 >
@@ -86,7 +86,7 @@ export default function Recommended() {
               </div>
 
               <h3 className="reco__name">
-                <Link to={`/product/${p.id}`}>{p.name}</Link>
+                <Link to={`/productdetail/${p.id}`}>{p.name}</Link>
               </h3>
 
               <div className="reco__foot">
@@ -98,7 +98,7 @@ export default function Recommended() {
                     </span>
                   )}
                 </div>
-                <Link className="reco__cart" to={`/product/${p.id}`} aria-label={`View ${p.name}`}>
+                <Link className="reco__cart" to={`/productdetail/${p.id}`} aria-label={`View ${p.name}`}>
                   <ShoppingCart size={18} />
                 </Link>
               </div>

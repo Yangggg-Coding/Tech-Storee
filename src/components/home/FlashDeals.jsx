@@ -1,4 +1,4 @@
-import {  Clock3 } from "lucide-react";
+import { Clock3 } from "lucide-react";
 import { Link } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 
@@ -30,7 +30,8 @@ export default function FlashDeal() {
         <div className="deal__copy">
           <p className="deal__eyebrow">Deal of the week</p>
           <h2 className="deal__title">
-            A little more phone. A lot less price.
+            A little more phone
+            <br />A lot less price.
           </h2>
           <p className="deal__description">
             Thoughtful tech, special pricing, and the same Volt support you can
@@ -39,13 +40,13 @@ export default function FlashDeal() {
           <div className="deal__timer">
             <Clock3 size={17} aria-hidden="true" /> Limited-time offer
           </div>
-          <Link className="button button--primary" to={`/product/${deal.id}`}>
+          <Link className="button button--primary" to={`/productdetail/${deal.id}`}>
             Shop the deal
           </Link>
         </div>
         <Link
           className="deal__product"
-          to={`/product/${deal.id}`}
+          to={`/productdetail/${deal.id}`}
           aria-label={`Shop ${deal.name}`}
         >
           <span className="deal__badge">Special price</span>
