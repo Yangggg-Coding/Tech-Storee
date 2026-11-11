@@ -21,7 +21,7 @@ export default function Hero() {
   if (loading) {
     return (
       <section className="hero hero--status" aria-live="polite">
-        Loading featured phones…
+        Loading featured products...
       </section>
     );
   }
@@ -43,7 +43,7 @@ export default function Hero() {
         <div className="hero_content">
           <p className="hero_eyebrow">The latest, picked for you</p>
           <h1 className="hero_title">
-            Meet your next <span>favorite phone.</span>
+            Meet your next <span>favorite product.</span>
           </h1>
           <p className="hero_description">{featuredProduct.description}</p>
           <div className="hero_actions">
@@ -54,7 +54,7 @@ export default function Hero() {
               Shop {featuredProduct.name}
             </Link>
             <Link className="button button--secondary" to="/shop">
-              Explore all phones
+              Explore all products
             </Link>
           </div>
         </div>

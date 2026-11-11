@@ -36,7 +36,7 @@ export default function Bestsellers() {
           <h2 className="bestsellers_title">Customer favorites</h2>
         </div>
         <Link className="bestsellers_link" to="/shop">
-          Shop all phones <ArrowRight size={17} />
+          Shop All <ArrowRight size={17} />
         </Link>
       </div>
       <div className="bestsellers_grid">

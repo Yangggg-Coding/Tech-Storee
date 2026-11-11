@@ -33,9 +33,11 @@ export default function ProductGrid({ products }) {
             <div className="bestsellers_footer">
               <div>
                 <strong>${product.price.toFixed(2)}</strong>
-                {product.originalPrice && (
+
+                {/* disscount */}
+                {/*   {product.originalPrice && (
                   <del>${product.originalPrice.toFixed(2)}</del>
-                )}
+                )} */}
               </div>
               <Link
                 className="bestsellers_action"
