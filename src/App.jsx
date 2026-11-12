@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Wishlist from "./pages/Wishlist";
 function App() {
+
   return (
     <>
       {" "}

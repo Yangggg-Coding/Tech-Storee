@@ -6,7 +6,7 @@ export const sortOptions = [
   { value: "newest", label: "Newest" },
 ];
 
-export function sortProducts(products, sortKey) {
+export default function sortProducts(products, sortKey) {
   const list = [...products];
 
   switch (sortKey) {

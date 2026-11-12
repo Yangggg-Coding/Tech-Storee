@@ -1,5 +1,18 @@
 import SortSelect from "../shop/SortSelect";
-export default function ProductCard({ count, sort, onSortChange }) {
+import { useSearchParams } from "react-router-dom";
+export default function ProductCard({ count, sort }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  function handleSort(value) {
+    const next = new URLSearchParams(searchParams);
+    if (value === "featured") {
+      next.delete("sort");
+    } else {
+      next.set("sort", value);
+    }
+    setSearchParams(next);
+  }
+
   return (
     <section className="shop-page_header">
       <div className="shop-page_heading">
@@ -13,7 +26,7 @@ export default function ProductCard({ count, sort, onSortChange }) {
             <p className="shop-page_count">
               Showing {count} {count === 1 ? "product" : "products"}
             </p>
-            <SortSelect value={sort} onChange={onSortChange} />
+            <SortSelect value={sort} onChange={handleSort} />
           </div>
         </div>
       </div>

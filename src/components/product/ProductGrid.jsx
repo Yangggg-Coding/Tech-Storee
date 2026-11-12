@@ -3,6 +3,8 @@ import { Heart, ShoppingBag, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../../styles/shop.css";
 
+
+
 export default function ProductGrid({ products }) {
   const [wishlist, setWishlist] = useState([]);
 
@@ -15,6 +17,7 @@ export default function ProductGrid({ products }) {
       prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
     );
   }
+
   return (
     <div className="bestsellers_grid shop_grid">
       {products.map((product) => (

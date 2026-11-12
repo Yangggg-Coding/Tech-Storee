@@ -4,25 +4,18 @@ import Footer from "../components/layout/Footer";
 import useProducts from "../hooks/useProducts";
 import ProductGrid from "../components/product/ProductGrid";
 import { useSearchParams } from "react-router-dom";
-import { sortProducts } from "../utils/sortProducts";
+import sortProducts from "../utils/sortProducts";
+import filterProducts from "../utils/filterProducts";
 
 export default function Shop() {
   const { products, loading, error } = useProducts();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
+
   const sort = searchParams.get("sort") || "featured";
+  const category = searchParams.get("category");
 
-  function handleSort(value) {
-    const next = new URLSearchParams(searchParams);
-    if (value === "featured") {
-      next.delete("sort");
-    } else {
-      next.set("sort", value);
-    }
-    setSearchParams(next);
-  }
+  const visible = sortProducts(filterProducts(products, category), sort);
 
-  const sortedProducts = sortProducts(products, sort);
-  
   return (
     <>
       <Layout />
@@ -35,12 +28,8 @@ export default function Shop() {
           </p>
         ) : (
           <>
-            <ProductCard
-              count={sortedProducts.length}
-              sort={sort}
-              onSortChange={handleSort}
-            />
-            <ProductGrid products={sortedProducts} />
+            <ProductCard />
+            <ProductGrid products={visible} />
           </>
         )}
       </main>

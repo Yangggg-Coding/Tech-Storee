@@ -1,4 +1,4 @@
-import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Search,
   Headset,
@@ -8,6 +8,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import "../../styles/navbar.css";
+
 
 export default function Navbar() {
   const departments = [

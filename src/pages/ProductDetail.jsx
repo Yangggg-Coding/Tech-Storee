@@ -6,6 +6,16 @@ import { Link } from "react-router-dom";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 
+  const departments = [
+    { name: "Shop all", to: "/shop" },
+    { name: "Computers", to: "/shop?category=computers" },
+    { name: "Phones & tablets", to: "/shop?category=phones" },
+    { name: "Audio", to: "/shop?category=audio" },
+    { name: "Gaming", to: "/shop?category=gaming" },
+    { name: "Smart home", to: "/shop?category=smart-home" },
+    { name: "Accessories", to: "/shop?category=accessories" },
+  ];
+  
 export default function ProductDetail() {
   const { products, loading, error } = useProducts();
   const { id } = useParams();
@@ -15,6 +25,7 @@ export default function ProductDetail() {
   function toLabel(key) {
     return key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
   }
+
   const product = products.find((p) => p.id === Number(id));
 
   useEffect(() => {
@@ -26,13 +37,14 @@ export default function ProductDetail() {
 
   if (loading)
     return (
-      <section className="product-detail_status">
-        Loading product…
-      </section>
+      <section className="product-detail_status">Loading product…</section>
     );
   if (error)
     return (
-      <section className="product-detail_status product-detail_status--error" role="alert">
+      <section
+        className="product-detail_status product-detail_status--error"
+        role="alert"
+      >
         We couldn’t load this product: {error}
       </section>
     );
@@ -74,11 +86,14 @@ export default function ProductDetail() {
             <p className="product-detail_brand">{product.brand}</p>
             <h1 className="product-detail_title">{product.name}</h1>
             <p className="product-detail_rating">
-              <Star size={15} fill="currentColor" /> {product.rating} <span>| {product.reviewCount} Reviews</span>
+              <Star size={15} fill="currentColor" /> {product.rating}{" "}
+              <span>| {product.reviewCount} Reviews</span>
             </p>
             <p className="product-detail_description">{product.description}</p>
             <div className="product-detail_price-row">
-              <strong className="product-detail_price">${price.toFixed(2)}</strong>
+              <strong className="product-detail_price">
+                ${price.toFixed(2)}
+              </strong>
             </div>
 
             <fieldset className="product-detail_choices">
