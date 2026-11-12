@@ -1,4 +1,11 @@
-/* import { Github, Instagram, MessageCircle, Youtube, Zap } from "lucide-react"; */
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebookF,
+  faGithub,
+  faInstagram,
+  faTiktok,
+} from "@fortawesome/free-brands-svg-icons";
+import { Zap } from "lucide-react";
 import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
@@ -26,7 +33,7 @@ export default function Footer() {
         <section className="site-footer_brand">
           <Link className="site-footer_logo" to="/" aria-label="Volit home">
             <span className="site-footer_logo-mark">
-              {/*               <Zap size={19} fill="currentColor" /> */}
+              <Zap size={19} fill="currentColor" />
             </span>
             <span>volt</span>
           </Link>
@@ -38,31 +45,34 @@ export default function Footer() {
             <a
               href="https://www.instagram.com/yanggxxyz?dlrf=MXNsdjc2ZGU4M2w4ZA%3D%3D&utm_source=qr"
               target="_blank"
+              rel="noreferrer"
               aria-label="Instagram"
             >
-              {/*            <Instagram size={18} /> */}
+              <FontAwesomeIcon icon={faInstagram} aria-hidden="true" />
             </a>
             <a
               href="https://github.com/Yangggg-Coding"
               target="_blank"
+              rel="noreferrer"
               aria-label="GitHub"
             >
-              {/*           <Github size={18} /> */}
+              <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
             </a>
             <a
               href="https://www.facebook.com/share/1Ef3dmoRdy/?mibextid=wwXIfr"
               target="_blank"
-              aria-label="facebook
-            "
+              rel="noreferrer"
+              aria-label="Facebook"
             >
-              {/*               <MessageCircle size={18} /> */}
+              <FontAwesomeIcon icon={faFacebookF} aria-hidden="true" />
             </a>
             <a
               href="https://www.tiktok.com/@mhcwm_?_r=1&_t=ZS-9BLgRuMbArV"
               target="_blank"
-              aria-label="Tiktok"
+              rel="noreferrer"
+              aria-label="TikTok"
             >
-              {/*    <Youtube size={18} /> */}
+              <FontAwesomeIcon icon={faTiktok} aria-hidden="true" />
             </a>
           </div>
         </section>
