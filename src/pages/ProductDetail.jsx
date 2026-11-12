@@ -5,25 +5,35 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import "../styles/productDetail.css";
 
-  const departments = [
-    { name: "Shop all", to: "/shop" },
-    { name: "Computers", to: "/shop?category=computers" },
-    { name: "Phones & tablets", to: "/shop?category=phones" },
-    { name: "Audio", to: "/shop?category=audio" },
-    { name: "Gaming", to: "/shop?category=gaming" },
-    { name: "Smart home", to: "/shop?category=smart-home" },
-    { name: "Accessories", to: "/shop?category=accessories" },
-  ];
-  
+const departments = [
+  { name: "Shop all", to: "/shop" },
+  { name: "Computers", to: "/shop?category=computers" },
+  { name: "Phones & tablets", to: "/shop?category=phones" },
+  { name: "Audio", to: "/shop?category=audio" },
+  { name: "Gaming", to: "/shop?category=gaming" },
+  { name: "Smart home", to: "/shop?category=smart-home" },
+  { name: "Accessories", to: "/shop?category=accessories" },
+];
+
 export default function ProductDetail() {
   const { products, loading, error } = useProducts();
   const { id } = useParams();
   const [option, setOption] = useState("");
   const [finish, setFinish] = useState(""); // color1
+  const [wishlist, setWishlist] = useState([]);
 
   function toLabel(key) {
     return key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
+  }
+
+  function toggleWishlist(productId) {
+    setWishlist((prev) =>
+      prev.includes(productId)
+        ? prev.filter((item) => item !== productId)
+        : [...prev, productId],
+    );
   }
 
   const product = products.find((p) => p.id === Number(id));
@@ -140,10 +150,39 @@ export default function ProductDetail() {
               </div>
             </fieldset>
 
+            <div className="product-detail_actions">
+              <button
+                type="button"
+                className="button button--primary product-detail_add-cart"
+              >
+                <ShoppingBag size={18} />
+                Add to Cart
+              </button>
+
+              <button
+                type="button"
+                className={
+                  wishlist.includes(product.id)
+                    ? "product-detail_wishlist product-detail_wishlist--active"
+                    : "product-detail_wishlist"
+                }
+                onClick={() => toggleWishlist(product.id)}
+                aria-label={
+                  wishlist.includes(product.id)
+                    ? `Remove ${product.name} from wishlist`
+                    : `Add ${product.name} to wishlist`
+                }
+                aria-pressed={wishlist.includes(product.id)}
+              >
+                <Heart
+                  size={18}
+                  fill={wishlist.includes(product.id) ? "currentColor" : "none"}
+                />
+                {wishlist.includes(product.id) ? "Saved" : "Wishlist"}
+              </button>
+            </div>
+
             <div className="product-detail_promises">
-              <p>
-                <ShoppingBag size={16} /> Free shipping
-              </p>
               <p>
                 <Heart size={16} /> 30-day returns
               </p>
@@ -163,6 +202,7 @@ export default function ProductDetail() {
           </dl>
         </section>
       </main>
+
       <Footer />
     </>
   );
