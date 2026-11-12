@@ -1292,16 +1292,18 @@ img {
   display: grid;
   min-height: 32rem;
   place-items: center;
+  padding: 1.5rem;
   overflow: hidden;
   border-radius: 1.5rem;
   background: var(--soft);
 }
 
 .product-detail_image img {
+  display: block;
   width: 100%;
-  height: 32rem;
+  max-height: 32rem;
   object-fit: contain;
-  mix-blend-mode: multiply;
+  object-position: center;
 }
 
 .product-detail_info {

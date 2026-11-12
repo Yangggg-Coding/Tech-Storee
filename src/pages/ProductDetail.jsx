@@ -26,107 +26,128 @@ export default function ProductDetail() {
 
   if (loading)
     return (
-      <section className="bestsellers bestsellers--status">
-        Loading bestsellers…
+      <section className="product-detail_status">
+        Loading product…
       </section>
     );
   if (error)
     return (
-      <section className="bestsellers bestsellers--status" role="alert">
-        We couldn’t load bestsellers: {error}
+      <section className="product-detail_status product-detail_status--error" role="alert">
+        We couldn’t load this product: {error}
       </section>
     );
+  if (!product) {
+    return (
+      <>
+        <Layout />
+        <section className="product-detail_missing">
+          <h1>Product not found</h1>
+          <Link to="/shop">Back to shop</Link>
+        </section>
+        <Footer />
+      </>
+    );
+  }
 
-  const price = product.optionPrices[option] ?? product.price;
+  const price = product.optionPrices?.[option] ?? product.price;
 
   return (
     <>
       <Layout />
-      <section>
-        <div>
-          <Link to="/">
-            Home &gt;{" "}
-            <span>
-              <Link to="/shop">Catalog &gt; </Link>
-            </span>
-            <span>
-              <Link>{product.category} &gt; </Link>
-            </span>
-            <span>
-              <Link>{product.name}</Link>
-            </span>
-          </Link>
-        </div>
-      </section>
-      <section>
-        <div>
-          <img src={product.image} alt={product.name} />
-          <img src={product.image} alt={product.name} />
-          <img src={product.image} alt={product.name} />
-          <img src={product.image} alt={product.name} />
-        </div>
-        <div>
-          <p>{product.brand}</p>
-          <h1>{product.name}</h1>
-          <span>
-            <Star size={15} fill="currentColor" /> {product.rating} |{" "}
-            {product.reviewCount}
-          </span>
-          <p>{product.description}</p>
-          <p>
-            ${price.toFixed(2)}
-            {/*    {product.originalPrice && (
-              <span className="detail__old">
-                ${product.originalPrice.toFixed(2)}
-              </span> 
-            )} */}
-          </p>
-          <div>
-            {product.options.map((o) => (
-              <button
-                key={o}
-                className={o === option ? "pill pill--active" : "pill"}
-                onClick={() => setOption(o)}
-              >
-                {o}
-              </button>
+      <main className="product-detail">
+        <nav className="product-detail_breadcrumbs" aria-label="Breadcrumb">
+          <Link to="/">Home</Link>
+          <span>&gt;</span>
+          <Link to="/shop">Catalog</Link>
+          <span>&gt;</span>
+          <Link to="/shop">{product.category}</Link>
+          <span>&gt;</span>
+          <span>{product.name}</span>
+        </nav>
+
+        <section className="product-detail_layout">
+          <div className="product-detail_image">
+            <img src={product.image} alt={product.name} />
+          </div>
+
+          <div className="product-detail_info">
+            <p className="product-detail_brand">{product.brand}</p>
+            <h1 className="product-detail_title">{product.name}</h1>
+            <p className="product-detail_rating">
+              <Star size={15} fill="currentColor" /> {product.rating} <span>| {product.reviewCount} Reviews</span>
+            </p>
+            <p className="product-detail_description">{product.description}</p>
+            <div className="product-detail_price-row">
+              <strong className="product-detail_price">${price.toFixed(2)}</strong>
+            </div>
+
+            <fieldset className="product-detail_choices">
+              <legend>
+                Storage <span>({product.options.length} options)</span>
+              </legend>
+              <div className="product-detail_option-list">
+                {product.options.map((o) => (
+                  <button
+                    type="button"
+                    key={o}
+                    className={
+                      o === option
+                        ? "product-detail_option product-detail_option--active"
+                        : "product-detail_option"
+                    }
+                    onClick={() => setOption(o)}
+                  >
+                    {o}
+                  </button>
+                ))}
+              </div>
+            </fieldset>
+
+            <fieldset className="product-detail_choices">
+              <legend>
+                Finish <span>({product.finishes.length} colors)</span>
+              </legend>
+              <div className="product-detail_finish-list">
+                {product.finishes.map((f) => (
+                  <button
+                    type="button"
+                    key={f}
+                    className={
+                      f === finish
+                        ? "product-detail_finish product-detail_finish--active"
+                        : "product-detail_finish"
+                    }
+                    style={{ background: f }}
+                    onClick={() => setFinish(f)}
+                    aria-label={`Color ${f}`}
+                  ></button>
+                ))}
+              </div>
+            </fieldset>
+
+            <div className="product-detail_promises">
+              <p>
+                <ShoppingBag size={16} /> Free shipping
+              </p>
+              <p>
+                <Heart size={16} /> 30-day returns
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="product-detail_specs">
+          <h2>Product Details</h2>
+          <dl>
+            {Object.entries(product.specs).map(([key, value]) => (
+              <div key={key}>
+                <dt>{toLabel(key)}</dt>
+                <dd>{value}</dd>
+              </div>
             ))}
-          </div>
-          <div>
-            {product.finishes.map((f) => {
-              <button
-                key={f}
-                className={""}
-                style={{ background: f }}
-                onClick={() => setFinish(f)}
-                aria-label={`Color ${f}`}
-              ></button>;
-            })}
-          </div>
-          <div>
-            <button>
-              <ShoppingBag />
-              Add to Cart
-            </button>
-            <Heart />
-          </div>
-        </div>
-      </section>
-      <section>
-        <h3>Product Details</h3>
-        <div>
-          <table>
-            <tbody>
-              {Object.entries(product.specs).map(([key, value]) => (
-                <tr key={key}>
-                  <th>{toLabel(key)}</th>
-                  <td>{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </section>
+          </dl>
+        </section>
+      </main>
       <Footer />
     </>
   );
