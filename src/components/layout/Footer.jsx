@@ -35,16 +35,33 @@ export default function Footer() {
             automation, and spatial audio systems.
           </p>
           <div className="site-footer_socials" aria-label="Social media">
-            <a href="https://instagram.com" aria-label="Instagram">
+            <a
+              href="https://www.instagram.com/yanggxxyz?dlrf=MXNsdjc2ZGU4M2w4ZA%3D%3D&utm_source=qr"
+              target="_blank"
+              aria-label="Instagram"
+            >
               {/*            <Instagram size={18} /> */}
             </a>
-            <a href="https://github.com" aria-label="GitHub">
+            <a
+              href="https://github.com/Yangggg-Coding"
+              target="_blank"
+              aria-label="GitHub"
+            >
               {/*           <Github size={18} /> */}
             </a>
-            <a href="https://discord.com" aria-label="Discord">
+            <a
+              href="https://www.facebook.com/share/1Ef3dmoRdy/?mibextid=wwXIfr"
+              target="_blank"
+              aria-label="facebook
+            "
+            >
               {/*               <MessageCircle size={18} /> */}
             </a>
-            <a href="https://youtube.com" aria-label="YouTube">
+            <a
+              href="https://www.tiktok.com/@mhcwm_?_r=1&_t=ZS-9BLgRuMbArV"
+              target="_blank"
+              aria-label="Tiktok"
+            >
               {/*    <Youtube size={18} /> */}
             </a>
           </div>

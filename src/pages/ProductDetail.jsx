@@ -20,8 +20,8 @@ const departments = [
 export default function ProductDetail() {
   const { products, loading, error } = useProducts();
   const { id } = useParams();
-  const [option, setOption] = useState("");
-  const [finish, setFinish] = useState(""); // color1
+  const [option, setOption] = useState(null);
+  const [finish, setFinish] = useState(null); // color1
   const [wishlist, setWishlist] = useState([]);
 
   function toLabel(key) {
