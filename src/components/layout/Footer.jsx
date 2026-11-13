@@ -32,8 +32,8 @@ export default function Footer() {
       <div className="site-footer_main">
         <section className="site-footer_brand">
           <Link className="site-footer_logo" to="/" aria-label="Volit home">
-            <span className="site-footer_logo-mark">
-              <Zap size={19} fill="currentColor" />
+            <span>
+              <img src="../../../public/images/hero/logo.jpg" width={50} />
             </span>
             <span>volt</span>
           </Link>
