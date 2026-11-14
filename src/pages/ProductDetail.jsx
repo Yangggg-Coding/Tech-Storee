@@ -5,24 +5,15 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useEffect, useState } from "react";
+import useWishlist from "../hooks/useWishlist";
 import "../styles/productDetail.css";
-
-const departments = [
-  { name: "Shop all", to: "/shop" },
-  { name: "Computers", to: "/shop?category=computers" },
-  { name: "Phones & tablets", to: "/shop?category=phones" },
-  { name: "Audio", to: "/shop?category=audio" },
-  { name: "Gaming", to: "/shop?category=gaming" },
-  { name: "Smart home", to: "/shop?category=smart-home" },
-  { name: "Accessories", to: "/shop?category=accessories" },
-];
 
 export default function ProductDetail() {
   const { products, loading, error } = useProducts();
   const { id } = useParams();
   const [option, setOption] = useState(null);
   const [finish, setFinish] = useState(null); // color1
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useWishlist();
 
   function toLabel(key) {
     return key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());

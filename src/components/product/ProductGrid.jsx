@@ -1,12 +1,10 @@
-import { useState } from "react";
 import { Heart, ShoppingBag, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import useWishlist from "../../hooks/useWishlist";
 import "../../styles/shop.css";
 
-
-
 export default function ProductGrid({ products }) {
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useWishlist();
 
   if (products.length === 0) {
     return <p className="shop--empty">No products are available right now.</p>;

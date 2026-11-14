@@ -1,7 +1,7 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, Heart, ShoppingCart, Star } from "lucide-react";
 import useProducts from "../../hooks/useProducts";
+import useWishlist from "../../hooks/useWishlist";
 
 const categoryLabels = {
   phones: "Phones & tablets",
@@ -13,7 +13,7 @@ const categoryLabels = {
 
 export default function Recommended() {
   const { products, loading, error } = useProducts();
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useWishlist();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;

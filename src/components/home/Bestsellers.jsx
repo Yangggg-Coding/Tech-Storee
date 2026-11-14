@@ -1,11 +1,11 @@
 import { ArrowRight, ShoppingBag, Star, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
-import { useState } from "react";
+import useWishlist from "../../hooks/useWishlist";
 
 export default function Bestsellers() {
   const { products, loading, error } = useProducts();
-  const [wishlist, setWishlist] = useState([]);
+  const [wishlist, setWishlist] = useWishlist();
   if (loading)
     return (
       <section className="bestsellers bestsellers--status">
