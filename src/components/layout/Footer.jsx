@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookF,
@@ -10,30 +11,40 @@ import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
 const categories = [
-  "Computers & Rigs",
-  "Phones & Tablets",
-  "Neural Audio Gear",
-  "Gaming & VR Systems",
-  "Smart Home Automation",
-  "High-Speed Accessories",
+  { name: "Computers & Rigs", to: "/shop?category=computers" },
+  { name: "Phones & Tablets", to: "/shop?category=phones" },
+  { name: "Neural Audio Gear", to: "/shop?category=audio" },
+  { name: "Gaming & VR Systems", to: "/shop?category=gaming" },
+  { name: "Smart Home Automation", to: "/shop?category=smart-home" },
+  { name: "High-Speed Accessories", to: "/shop?category=accessories" },
 ];
 
 const supportLinks = [
-  "Order Tracking Portal",
-  "Warranty & Registration",
-  "Returns & Global Refunds",
-  "Trade-In & Recycling",
-  "Live Tech Specialist",
+  { name: "Order Tracking Portal", to: "/info/order-tracking" },
+  { name: "Warranty & Registration", to: "/info/warranty-registration" },
+  { name: "Returns & Global Refunds", to: "/info/returns-refunds" },
+  { name: "Trade-In & Recycling", to: "/info/trade-in-recycling" },
+  { name: "Live Tech Specialist", to: "/info/live-tech-specialist" },
 ];
 
 export default function Footer() {
+  const [newsletterMessage, setNewsletterMessage] = useState("");
+
+  const handleNewsletterSubmit = (event) => {
+    event.preventDefault();
+    event.currentTarget.reset();
+    setNewsletterMessage(
+      "Thanks for your interest! This demo doesn't send or store email addresses.",
+    );
+  };
+
   return (
     <footer className="site-footer">
       <div className="site-footer_main">
         <section className="site-footer_brand">
           <Link className="site-footer_logo" to="/" aria-label="Volit home">
             <span>
-              <img src="../../../public/images/hero/logo.jpg" width={50} />
+              <img src="/images/hero/logo.jpg" width={50} alt="Volit" />
             </span>
             <span>volt</span>
           </Link>
@@ -81,8 +92,8 @@ export default function Footer() {
           <h2>Shop Categories</h2>
           <ul>
             {categories.map((category) => (
-              <li key={category}>
-                <Link to="/shop">{category}</Link>
+              <li key={category.name}>
+                <Link to={category.to}>{category.name}</Link>
               </li>
             ))}
           </ul>
@@ -92,8 +103,8 @@ export default function Footer() {
           <h2>Customer Support</h2>
           <ul>
             {supportLinks.map((item) => (
-              <li key={item}>
-                <Link to="/shop">{item}</Link>
+              <li key={item.name}>
+                <Link to={item.to}>{item.name}</Link>
               </li>
             ))}
           </ul>
@@ -105,7 +116,7 @@ export default function Footer() {
             Subscribe for hardware releases, benchmarks, and 10% discount
             vouchers.
           </p>
-          <form onSubmit={(event) => event.preventDefault()}>
+          <form onSubmit={handleNewsletterSubmit}>
             <label className="visually-hidden" htmlFor="footer-email">
               Email address
             </label>
@@ -113,9 +124,15 @@ export default function Footer() {
               id="footer-email"
               type="email"
               placeholder="Enter your email"
+              required
             />
             <button type="submit">Subscribe Now</button>
           </form>
+          {newsletterMessage && (
+            <p className="site-footer_newsletter-status" role="status">
+              {newsletterMessage}
+            </p>
+          )}
         </section>
       </div>
 
@@ -125,9 +142,9 @@ export default function Footer() {
           Solutions.
         </p>
         <nav aria-label="Legal">
-          <a href="#privacy">Privacy Policy</a>
-          <a href="#terms">Terms of Service</a>
-          <a href="#security">Security Specs</a>
+          <Link to="/info/privacy-policy">Privacy Policy</Link>
+          <Link to="/info/terms-of-service">Terms of Service</Link>
+          <Link to="/info/security-specs">Security Specs</Link>
         </nav>
       </div>
     </footer>

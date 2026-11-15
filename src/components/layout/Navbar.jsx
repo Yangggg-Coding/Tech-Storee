@@ -1,16 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
-import {
-  Search,
-  Headset,
-  UserRound,
-  Heart,
-  ShoppingBag,
-  ArrowUpRight,
-} from "lucide-react";
+import { Search, Heart, ShoppingBag, ArrowUpRight } from "lucide-react";
 import "../../styles/navbar.css";
-
+import useCart from "../../hooks/useCart";
 
 export default function Navbar() {
+  const [cart] = useCart();
   const departments = [
     { name: "Shop all", to: "/shop" },
     { name: "Computers", to: "/shop?category=computers" },
@@ -20,7 +14,7 @@ export default function Navbar() {
     { name: "Smart home", to: "/shop?category=smart-home" },
     { name: "Accessories", to: "/shop?category=accessories" },
   ];
-
+  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   return (
     <header className="navbar">
       <div className="navbar_main">
@@ -39,21 +33,14 @@ export default function Navbar() {
         </div>
 
         <div className="navbar_tools">
-          <button className="navbar_tool">
-            <Headset size={20} />
-            <span>Ask an expert</span>
-          </button>
-          <button className="navbar_tool" aria-label="Account">
-            <UserRound size={20} />
-          </button>
-          <button className="navbar_tool" aria-label="Wishlist">
+          <button className="navbar_tool heart-icon" aria-label="Wishlist">
             <Link to="/wishlist">
               <Heart size={20} />
             </Link>
           </button>
           <Link to="/cart" className="navbar_tool" aria-label="Cart">
             <ShoppingBag size={20} />
-            <span className="navbar_count">0</span>
+            <span className="navbar_count">{cartQuantity}</span>
           </Link>
         </div>
       </div>

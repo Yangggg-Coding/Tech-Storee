@@ -2,10 +2,13 @@ import { ArrowRight, ShoppingBag, Star, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import useWishlist from "../../hooks/useWishlist";
+import useCart from "../../hooks/useCart";
+import { addCartItem } from "../../utils/cart";
 
 export default function Bestsellers() {
   const { products, loading, error } = useProducts();
   const [wishlist, setWishlist] = useWishlist();
+  const [, setCart] = useCart();
   if (loading)
     return (
       <section className="bestsellers bestsellers--status">
@@ -90,13 +93,22 @@ export default function Bestsellers() {
                     <del>${product.originalPrice.toFixed(2)}</del>
                   )}
                 </div>
-                <Link
+                <button
+                  type="button"
                   className="bestsellers_action"
-                  to={`/productdetail/${product.id}`}
-                  aria-label={`View ${product.name}`}
+                  aria-label={`Add ${product.name} to cart`}
+                  onClick={() =>
+                    setCart((current) =>
+                      addCartItem(current, {
+                        productId: product.id,
+                        option: product.options?.[0],
+                        finish: product.finishes?.[0],
+                      }),
+                    )
+                  }
                 >
                   <ShoppingBag size={18} />
-                </Link>
+                </button>
               </div>
             </div>
           </article>

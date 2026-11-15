@@ -99,7 +99,8 @@ body {
 .navbar_tools {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1.25rem;
   width: 100%;
   max-width: 35rem;
   justify-self: end;
@@ -108,9 +109,12 @@ body {
 }
 
 .navbar_tool {
-  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.4rem;
+}
+.heart-icon {
+  margin-top: 5px;
 }
 
 .navbar_tool:hover {
@@ -193,7 +197,6 @@ body {
   }
   .navbar_tools {
     justify-content: flex-end;
-    gap: 1.25rem;
   }
 }
 

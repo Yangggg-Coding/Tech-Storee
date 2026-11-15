@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Heart, ShoppingCart, Star } from "lucide-react";
 import useProducts from "../../hooks/useProducts";
 import useWishlist from "../../hooks/useWishlist";
-
+import useCart from "../../hooks/useCart";
+import { addCartItem } from "../../utils/cart";
 const categoryLabels = {
   phones: "Phones & tablets",
   audio: "Audio",
@@ -14,6 +15,7 @@ const categoryLabels = {
 export default function Recommended() {
   const { products, loading, error } = useProducts();
   const [wishlist, setWishlist] = useWishlist();
+  const [, setCart] = useCart();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
@@ -95,13 +97,22 @@ export default function Recommended() {
                     </span>
                   )}
                 </div>
-                <Link
+                <button
+                  type="button"
                   className="reco_cart"
-                  to={`/productdetail/${p.id}`}
-                  aria-label={`View ${p.name}`}
+                  aria-label={`Add ${p.name} to cart`}
+                  onClick={() =>
+                    setCart((current) =>
+                      addCartItem(current, {
+                        productId: p.id,
+                        option: p.options?.[0],
+                        finish: p.finishes?.[0],
+                      }),
+                    )
+                  }
                 >
                   <ShoppingCart size={18} />
-                </Link>
+                </button>
               </div>
             </div>
           </article>

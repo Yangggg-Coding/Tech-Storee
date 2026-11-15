@@ -7,6 +7,8 @@ import { Heart, ShoppingBag, Star } from "lucide-react";
 import { useEffect, useState } from "react";
 import useWishlist from "../hooks/useWishlist";
 import "../styles/productDetail.css";
+import useCart from "../hooks/useCart";
+import { addCartItem } from "../utils/cart";
 
 export default function ProductDetail() {
   const { products, loading, error } = useProducts();
@@ -14,7 +16,7 @@ export default function ProductDetail() {
   const [option, setOption] = useState(null);
   const [finish, setFinish] = useState(null); // color1
   const [wishlist, setWishlist] = useWishlist();
-
+  const [, setCart] = useCart();
   function toLabel(key) {
     return key.replace(/([A-Z])/g, " $1").replace(/^./, (c) => c.toUpperCase());
   }
@@ -145,6 +147,16 @@ export default function ProductDetail() {
               <button
                 type="button"
                 className="button button--primary product-detail_add-cart"
+                aria-label={`Add ${product.name} to cart`}
+                onClick={() =>
+                  setCart((current) =>
+                    addCartItem(current, {
+                      productId: product.id,
+                      option: option ?? product.options[0],
+                      finish: finish ?? product.finishes[0],
+                    }),
+                  )
+                }
               >
                 <ShoppingBag size={18} />
                 Add to Cart

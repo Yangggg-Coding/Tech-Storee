@@ -1,19 +1,40 @@
-import { ArrowLeft, ArrowUpRight, ShoppingBag, Trash2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowUpRight,
+  Minus,
+  Plus,
+  ShoppingBag,
+  Trash2,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "../components/layout/Layout";
 import Footer from "../components/layout/Footer";
 import BenefitsBar from "../components/home/BenefitsBar";
 import useProducts from "../hooks/useProducts";
 import useCart from "../hooks/useCart";
+import { getCartItemKey, updateCartItemQuantity } from "../utils/cart";
 import "../styles/cart.css";
 
 export default function Cart() {
   const { products, loading, error } = useProducts();
   const [cart, setCart] = useCart();
-  const cartProducts = products.filter((product) => cart.includes(product.id));
+  const cartProducts = cart
+    .map((item) => ({
+      product: products.find((product) => product.id === item.productId),
+      item,
+    }))
+    .filter(({ product }) => product);
+  const cartQuantity = cart.reduce(
+    (total, item) => total + item.quantity,
+    0,
+  );
+  const cartSubtotal = cartProducts.reduce((total, { product, item }) => {
+    const price = product.optionPrices?.[item.option] ?? product.price;
+    return total + price * item.quantity;
+  }, 0);
 
-  function removeFromCart(id) {
-    setCart((current) => current.filter((productId) => productId !== id));
+  function changeQuantity(item, quantity) {
+    setCart((current) => updateCartItemQuantity(current, item, quantity));
   }
 
   return (
@@ -36,8 +57,7 @@ export default function Cart() {
             </div>
             {!loading && !error && (
               <span className="cart-count">
-                {cartProducts.length}{" "}
-                {cartProducts.length === 1 ? "item" : "items"}
+                {cartQuantity} {cartQuantity === 1 ? "item" : "items"}
               </span>
             )}
           </header>
@@ -130,7 +150,7 @@ export default function Cart() {
                   <h2>Your items</h2>
                 </div>
                 {!loading && !error && (
-                  <span className="cart-order_count">{cartProducts.length}</span>
+                  <span className="cart-order_count">{cartQuantity}</span>
                 )}
               </div>
 
@@ -154,38 +174,84 @@ export default function Cart() {
               ) : (
                 <>
                   <div className="cart-items">
-                    {cartProducts.map((product) => (
-                      <article className="cart-item" key={product.id}>
-                        <Link
-                          className="cart-item_image"
-                          to={`/productdetail/${product.id}`}
-                          tabIndex={-1}
-                          aria-hidden="true"
+                    {cartProducts.map(({ product, item }) => {
+                      const price =
+                        product.optionPrices?.[item.option] ?? product.price;
+
+                      return (
+                        <article
+                          className="cart-item"
+                          key={getCartItemKey(item)}
                         >
-                          <img src={product.image} alt="" />
-                        </Link>
-                        <div className="cart-item_details">
-                          <p className="cart-item_brand">{product.brand}</p>
-                          <h3>
-                            <Link to={`/productdetail/${product.id}`}>
-                              {product.name}
-                            </Link>
-                          </h3>
-                          <p className="cart-item_category">{product.category}</p>
-                          <strong className="cart-item_price">
-                            ${product.price.toFixed(2)}
-                          </strong>
-                        </div>
-                        <button
-                          className="cart-item_remove"
-                          type="button"
-                          onClick={() => removeFromCart(product.id)}
-                          aria-label={`Remove ${product.name} from cart`}
-                        >
-                          <Trash2 size={17} />
-                        </button>
-                      </article>
-                    ))}
+                          <Link
+                            className="cart-item_image"
+                            to={`/productdetail/${product.id}`}
+                            tabIndex={-1}
+                            aria-hidden="true"
+                          >
+                            <img src={product.image} alt="" />
+                          </Link>
+                          <div className="cart-item_details">
+                            <p className="cart-item_brand">{product.brand}</p>
+                            <h3>
+                              <Link to={`/productdetail/${product.id}`}>
+                                {product.name}
+                              </Link>
+                            </h3>
+                            <p className="cart-item_category">
+                              {product.category}
+                            </p>
+                            {item.option && (
+                              <p className="cart-item_category">
+                                {item.option}
+                              </p>
+                            )}
+                            <strong className="cart-item_price">
+                              ${(price * item.quantity).toFixed(2)}
+                            </strong>
+                            <span className="cart-item_unit-price">
+                              ${price.toFixed(2)} each
+                            </span>
+                            <div
+                              className="cart-item_quantity"
+                              aria-label={`Quantity of ${product.name}`}
+                            >
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  changeQuantity(item, item.quantity - 1)
+                                }
+                                aria-label={`Decrease quantity of ${product.name}`}
+                              >
+                                <Minus size={14} />
+                              </button>
+                              <span>{item.quantity}</span>
+                              <button
+                                type="button"
+                                onClick={() =>
+                                  changeQuantity(item, item.quantity + 1)
+                                }
+                                aria-label={`Increase quantity of ${product.name}`}
+                              >
+                                <Plus size={14} />
+                              </button>
+                            </div>
+                          </div>
+                          <button
+                            className="cart-item_remove"
+                            type="button"
+                            onClick={() => changeQuantity(item, 0)}
+                            aria-label={`Remove ${product.name} from cart`}
+                          >
+                            <Trash2 size={17} />
+                          </button>
+                        </article>
+                      );
+                    })}
+                  </div>
+                  <div className="cart-subtotal">
+                    <span>Subtotal</span>
+                    <strong>${cartSubtotal.toFixed(2)}</strong>
                   </div>
                   <button
                     className="cart-clear"

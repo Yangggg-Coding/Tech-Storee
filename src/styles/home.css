@@ -282,7 +282,8 @@ img {
   width: 100%;
   max-width: 35rem;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 1.25rem;
   justify-self: end;
   font-size: 0.875rem;
   font-weight: 500;
@@ -854,6 +855,7 @@ img {
   color: var(--white);
   background: var(--accent);
   text-decoration: none;
+  cursor: pointer;
   transition:
     background-color 180ms ease,
     transform 180ms ease;

@@ -2,10 +2,11 @@ import { Heart, ShoppingBag, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 import useWishlist from "../../hooks/useWishlist";
 import "../../styles/shop.css";
-
+import useCart from "../../hooks/useCart";
+import { addCartItem } from "../../utils/cart";
 export default function ProductGrid({ products }) {
   const [wishlist, setWishlist] = useWishlist();
-
+  const [, setCart] = useCart();
   if (products.length === 0) {
     return <p className="shop--empty">No products are available right now.</p>;
   }
@@ -69,13 +70,22 @@ export default function ProductGrid({ products }) {
                   <del>${product.originalPrice.toFixed(2)}</del>
                 )} */}
               </div>
-              <Link
+              <button
+                type="button"
                 className="bestsellers_action"
-                to={`/productdetail/${product.id}`}
-                aria-label={`View ${product.name}`}
+                aria-label={`Add ${product.name} to cart`}
+                onClick={() => {
+                  setCart((current) =>
+                    addCartItem(current, {
+                      productId: product.id,
+                      option: product.options?.[0],
+                      finish: product.finishes?.[0],
+                    }),
+                  );
+                }}
               >
                 <ShoppingBag size={18} />
-              </Link>
+              </button>
             </div>
           </div>
         </article>

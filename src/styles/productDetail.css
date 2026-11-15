@@ -168,8 +168,21 @@
   width: 100%;
   min-height: 3.125rem;
   padding: 0.875rem 1.25rem;
+  border: 1px solid var(--accent);
   border-radius: 999px;
+  color: var(--white);
+  background: var(--accent);
   box-shadow: 0 0.75rem 1.4rem rgb(47 91 255 / 18%);
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.product-detail_add-cart:hover:not(:disabled) {
+  background: #2449dc;
+  box-shadow: 0 0.75rem 1.4rem rgb(47 91 255 / 26%);
+  transform: translateY(-1px);
 }
 
 .product-detail_add-cart svg {

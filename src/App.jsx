@@ -6,11 +6,12 @@ import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 import Wishlist from "./pages/Wishlist";
+import FooterInfo from "./pages/FooterInfo";
+import { CartProvider } from "./context/CartContext";
 function App() {
 
   return (
-    <>
-      {" "}
+    <CartProvider>
       <Routes>
         <Route element={<Layout />}></Route>
         <Route path="/" element={<Home />}></Route>
@@ -18,9 +19,10 @@ function App() {
         <Route path="/productdetail/:id" element={<ProductDetail />}></Route>
         <Route path="/cart" element={<Cart />}></Route>
         <Route path="/wishlist" element={<Wishlist />}></Route>
+        <Route path="/info/:slug" element={<FooterInfo />}></Route>
         <Route path="*" element={<NotFound />}></Route>
       </Routes>
-    </>
+    </CartProvider>
   );
 }
 
