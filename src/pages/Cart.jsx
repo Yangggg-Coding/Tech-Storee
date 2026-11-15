@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   ArrowLeft,
   ArrowUpRight,
@@ -15,23 +16,39 @@ import useCart from "../hooks/useCart";
 import { getCartItemKey, updateCartItemQuantity } from "../utils/cart";
 import "../styles/cart.css";
 
+const deliveryOptions = {
+  fastest: { label: "Fastest delivery", eta: "within 1 day", fee: 100 },
+  express: { label: "Express delivery", eta: "within 2–3 days", fee: 50 },
+  standard: { label: "Standard delivery", eta: "within 5–7 days", fee: 0 },
+};
+
+const paymentOptions = [
+  { value: "card", name: "Card", description: "Visa, Mastercard and Amex" },
+  { value: "paypal", name: "PayPal", description: "Fast and secure" },
+  { value: "wallet", name: "Digital wallet", description: "Apple Pay / Google Pay" },
+];
+
 export default function Cart() {
   const { products, loading, error } = useProducts();
   const [cart, setCart] = useCart();
+  const [deliveryOption, setDeliveryOption] = useState("standard");
+  const [paymentMethod, setPaymentMethod] = useState("card");
+
   const cartProducts = cart
     .map((item) => ({
       product: products.find((product) => product.id === item.productId),
       item,
     }))
     .filter(({ product }) => product);
-  const cartQuantity = cart.reduce(
-    (total, item) => total + item.quantity,
-    0,
-  );
+
+  const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
   const cartSubtotal = cartProducts.reduce((total, { product, item }) => {
     const price = product.optionPrices?.[item.option] ?? product.price;
     return total + price * item.quantity;
   }, 0);
+  const deliveryFee = deliveryOptions[deliveryOption]?.fee ?? 0;
+  const tax = cartSubtotal * 0.08;
+  const total = cartSubtotal + deliveryFee + tax;
 
   function changeQuantity(item, quantity) {
     setCart((current) => updateCartItemQuantity(current, item, quantity));
@@ -135,10 +152,17 @@ export default function Cart() {
                 <label className="cart-delivery_label" htmlFor="cart-delivery">
                   Delivery option
                 </label>
-                <select className="cart-delivery" id="cart-delivery" defaultValue="standard">
-                  <option value="fastest">Fastest delivery · within 1 day · $100</option>
-                  <option value="express">Express delivery · within 2–3 days · $50</option>
-                  <option value="standard">Standard delivery · within 5–7 days · Free</option>
+                <select
+                  className="cart-delivery"
+                  id="cart-delivery"
+                  value={deliveryOption}
+                  onChange={(event) => setDeliveryOption(event.target.value)}
+                >
+                  {Object.entries(deliveryOptions).map(([value, config]) => (
+                    <option key={value} value={value}>
+                      {config.label} · {config.eta} · ${config.fee === 0 ? "Free" : config.fee}
+                    </option>
+                  ))}
                 </select>
               </section>
             </section>
@@ -268,9 +292,67 @@ export default function Cart() {
                   <span>04</span>
                   <div>
                     <h2>Payment</h2>
-                    <p>Payment options will be available at checkout.</p>
+                    <p>Choose a secure payment method.</p>
                   </div>
                 </div>
+
+                <div className="cart-payment_methods">
+                  {paymentOptions.map((option) => (
+                    <label
+                      key={option.value}
+                      className={`cart-payment_option ${
+                        paymentMethod === option.value ? "is-selected" : ""
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value={option.value}
+                        checked={paymentMethod === option.value}
+                        onChange={(event) => setPaymentMethod(event.target.value)}
+                      />
+                      <span className="cart-payment_badge" aria-hidden="true">
+                        {option.name.charAt(0)}
+                      </span>
+                      <span className="cart-payment_text">
+                        <strong>{option.name}</strong>
+                        <small>{option.description}</small>
+                      </span>
+                    </label>
+                  ))}
+                </div>
+
+                <div className="cart-payment_totals">
+                  <div>
+                    <span>Subtotal</span>
+                    <strong>${cartSubtotal.toFixed(2)}</strong>
+                  </div>
+                  <div>
+                    <span>Shipping</span>
+                    <strong>${deliveryFee.toFixed(2)}</strong>
+                  </div>
+                  <div>
+                    <span>Estimated tax</span>
+                    <strong>${tax.toFixed(2)}</strong>
+                  </div>
+                  <div className="cart-payment_total">
+                    <span>Total</span>
+                    <strong>${total.toFixed(2)}</strong>
+                  </div>
+                </div>
+
+                <Link
+                  className={`cart-checkout_button ${cartProducts.length === 0 ? "is-disabled" : ""}`}
+                  to={cartProducts.length > 0 ? "/checkout" : "#"}
+                  aria-disabled={cartProducts.length === 0}
+                  onClick={(event) => {
+                    if (cartProducts.length === 0) {
+                      event.preventDefault();
+                    }
+                  }}
+                >
+                  Proceed to checkout
+                </Link>
               </section>
             </aside>
           </div>
