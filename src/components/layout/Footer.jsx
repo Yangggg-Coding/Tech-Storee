@@ -6,7 +6,7 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
-import { Zap } from "lucide-react";
+
 import { Link } from "react-router-dom";
 import "../../styles/footer.css";
 
@@ -142,7 +142,7 @@ export default function Footer() {
           Solutions.
         </p>
         <nav aria-label="Legal">
-          <Link to="/info/privacy-policy">Privacy Policy</Link>
+          <Link to="/info/privacy-policy">Privacy Policy</Link> 
           <Link to="/info/terms-of-service">Terms of Service</Link>
           <Link to="/info/security-specs">Security Specs</Link>
         </nav>
