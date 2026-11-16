@@ -1,8 +1,8 @@
-import { Link, NavLink } from "react-router-dom";
-import { Search, Heart, ShoppingBag, ArrowUpRight } from "lucide-react";
+import { Link, NavLink, useSearchParams } from "react-router-dom";
+import { Heart, ShoppingBag, ArrowUpRight } from "lucide-react";
 import "../../styles/navbar.css";
 import useCart from "../../hooks/useCart";
-
+import SearchBar from "../shop/SearchBar";
 export default function Navbar() {
   const [cart] = useCart();
   const departments = [
@@ -15,6 +15,10 @@ export default function Navbar() {
     { name: "Accessories", to: "/shop?category=accessories" },
   ];
   const cartQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+
+  const [searchParams] = useSearchParams();
+  const q = searchParams.get("q") || "";
+
   return (
     <header className="navbar">
       <div className="navbar_main">
@@ -22,15 +26,7 @@ export default function Navbar() {
           volt<span>.</span>
         </Link>
 
-        <div className="navbar_search-wrap">
-          <Search className="navbar_search-icon" size={20} />
-          <input
-            className="navbar_search"
-            type="search"
-            placeholder="Find your next upgrade"
-          />
-          <kbd className="navbar_kbd">⌘ K</kbd>
-        </div>
+        <SearchBar key={q} initial={q} />
 
         <div className="navbar_tools">
           <button className="navbar_tool heart-icon" aria-label="Wishlist">

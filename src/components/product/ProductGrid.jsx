@@ -4,11 +4,19 @@ import useWishlist from "../../hooks/useWishlist";
 import "../../styles/shop.css";
 import useCart from "../../hooks/useCart";
 import { addCartItem } from "../../utils/cart";
-export default function ProductGrid({ products }) {
+export default function ProductGrid({ products, query = "" }) {
   const [wishlist, setWishlist] = useWishlist();
   const [, setCart] = useCart();
+  
   if (products.length === 0) {
-    return <p className="shop--empty">No products are available right now.</p>;
+    return (
+      <div className="shop--empty">
+        <p>
+          {query ? `No products found for "${query}".` : "No products found."}
+        </p>
+        <Link to="/shop">Back to all products</Link>
+      </div>
+    );
   }
 
   function toggleWishlist(id) {

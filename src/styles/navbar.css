@@ -96,6 +96,21 @@ body {
   color: var(--muted);
 }
 
+.navbar_clear {
+  position: absolute;
+  top: 50%;
+  right: 0.6rem;
+  display: grid;
+  place-items: center;
+  padding: 0.3rem;
+  color: var(--muted) !important;
+  transform: translateY(-50%);
+}
+
+.navbar_clear:hover {
+  color: var(--accent) !important;
+}
+
 .navbar_tools {
   display: flex;
   align-items: center;
