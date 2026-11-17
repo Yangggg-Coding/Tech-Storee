@@ -1,0 +1,230 @@
+.not-found {
+  display: grid;
+  min-height: min(680px, calc(100vh - 8.75rem));
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(3rem, 8vw, 7rem) clamp(1.25rem, 6vw, 5rem);
+  background:
+    radial-gradient(ellipse at 23% 48%, rgb(47 91 255 / 8%), transparent 34%),
+    linear-gradient(135deg, #f8faff 0%, #fff 58%);
+}
+
+.not-found_inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.9fr);
+  align-items: center;
+  gap: clamp(2rem, 8vw, 8rem);
+  width: min(100%, 1120px);
+}
+
+.not-found_art {
+  position: relative;
+  display: grid;
+  aspect-ratio: 1;
+  width: min(100%, 470px);
+  place-items: center;
+  justify-self: center;
+  isolation: isolate;
+}
+
+.not-found_code {
+  position: relative;
+  z-index: 1;
+  color: #101725;
+  font-size: clamp(7rem, 18vw, 13rem);
+  font-weight: 850;
+  letter-spacing: -0.105em;
+  line-height: 0.85;
+  text-shadow: 0 16px 48px rgb(15 17 21 / 10%);
+}
+
+.not-found_orbit {
+  position: absolute;
+  border: 1px solid rgb(47 91 255 / 20%);
+  border-radius: 50%;
+}
+
+.not-found_orbit--outer {
+  inset: 5%;
+  transform: rotate(-24deg) scaleY(0.58);
+}
+
+.not-found_orbit--inner {
+  inset: 16%;
+  border-color: rgb(47 91 255 / 12%);
+  transform: rotate(38deg) scaleY(0.74);
+}
+
+.not-found_planet {
+  position: absolute;
+  top: 21%;
+  right: 15%;
+  width: clamp(2.5rem, 7vw, 4.5rem);
+  aspect-ratio: 1;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #80a1ff, #2f5bff 75%);
+  box-shadow: 0 12px 40px rgb(47 91 255 / 28%);
+}
+
+.not-found_spark {
+  position: absolute;
+  z-index: 2;
+  width: 0.55rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #2f5bff;
+  box-shadow: 0 0 0 6px rgb(47 91 255 / 10%);
+}
+
+.not-found_spark--one {
+  bottom: 24%;
+  left: 17%;
+}
+
+.not-found_spark--two {
+  top: 29%;
+  left: 19%;
+  width: 0.35rem;
+  background: #9eb4ff;
+  box-shadow: 0 0 0 5px rgb(47 91 255 / 8%);
+}
+
+.not-found_art-label {
+  position: absolute;
+  right: 9%;
+  bottom: 19%;
+  color: #71809c;
+  font-size: 0.65rem;
+  font-weight: 750;
+  letter-spacing: 0.2em;
+}
+
+.not-found_copy {
+  max-width: 440px;
+}
+
+.not-found_eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.2rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.not-found_copy h1 {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-weight: 760;
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+}
+
+.not-found_description {
+  max-width: 390px;
+  margin: 1.25rem 0 0;
+  color: #687386;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.not-found_actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.not-found_button {
+  display: inline-flex;
+  min-height: 3.1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.not-found_button:hover {
+  transform: translateY(-2px);
+}
+
+.not-found_button--primary {
+  color: #fff;
+  background: var(--accent);
+  box-shadow: 0 8px 20px rgb(47 91 255 / 20%);
+}
+
+.not-found_button--primary:hover {
+  background: #244de8;
+  box-shadow: 0 10px 24px rgb(47 91 255 / 28%);
+}
+
+.not-found_button--secondary {
+  color: var(--ink);
+  border-color: #e2e6ef;
+  background: #fff;
+}
+
+.not-found_button--secondary:hover {
+  border-color: #c7d2fe;
+  box-shadow: 0 8px 20px rgb(15 17 21 / 6%);
+}
+
+.not-found_hint {
+  margin: 1.25rem 0 0;
+  color: #8a93a3;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.not-found_button:focus-visible {
+  outline: 3px solid rgb(47 91 255 / 35%);
+  outline-offset: 3px;
+}
+
+@media (max-width: 720px) {
+  .not-found {
+    min-height: auto;
+  }
+
+  .not-found_inner {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    max-width: 500px;
+  }
+
+  .not-found_art {
+    width: min(80%, 330px);
+  }
+
+  .not-found_copy {
+    text-align: center;
+  }
+
+  .not-found_description {
+    margin-inline: auto;
+  }
+
+  .not-found_actions {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found_button {
+    transition: none;
+  }
+}
