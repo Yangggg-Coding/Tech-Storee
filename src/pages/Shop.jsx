@@ -7,36 +7,7 @@ import { useSearchParams } from "react-router-dom";
 import sortProducts from "../utils/sortProducts";
 import filterProducts from "../utils/filterProducts";
 
-const headings = {
-  all: {
-    title: "Shop all tech",
-    text: "Phones, computers, audio, and more.",
-  },
-  phones: {
-    title: "Phones & tablets",
-    text: "Flagship power and cameras that keep up.",
-  },
-  computers: {
-    title: "Computers",
-    text: "Laptops for work, school, and play.",
-  },
-  audio: {
-    title: "Audio",
-    text: "Headphones and earbuds for focus and music.",
-  },
-  gaming: {
-    title: "Gaming",
-    text: "Consoles and handhelds for every player.",
-  },
-  "smart-home": {
-    title: "Smart home",
-    text: "Speakers, lights, and thermostats.",
-  },
-  accessories: {
-    title: "Accessories",
-    text: "Chargers, storage, and desk gear.",
-  },
-};
+
 
 export default function Shop() {
   const { products, loading, error } = useProducts();
@@ -47,12 +18,6 @@ export default function Shop() {
   const query = searchParams.get("q") || "";
 
   const visible = sortProducts(filterProducts(products, category, query), sort);
-  const heading = query
-    ? {
-        title: `Results for "${query}"`,
-        text: "Try a brand, a model, or a category.",
-      }
-    : headings[category] || headings.all;
 
   return (
     <>
