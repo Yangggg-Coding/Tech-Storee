@@ -95,7 +95,7 @@ body {
   top: 50%;
   right: 1rem;
   transform: translateY(-50%);
-  font-family: inherit;
+  font-family: inherit; 
   font-size: 0.75rem;
   color: var(--muted);
 }
